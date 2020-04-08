@@ -21,23 +21,20 @@
             <div class="vert-center">
                 <form action="/" method="POST">
                     <div class="titulo">
-                        <h4>Ingrese con su cuenta</h4>
+                        <h4>Ingrese su correo electrónico</h4>
+                    </div>
+                    <div>
+                        <p>La contraseña será enviada al correo electrónico registrado en la plataforma</p>
                     </div>
                     <div class="group-input">
                         <i class="fas fa-user"></i> <input type="email" name="email" placeholder="Correo"
                             autocomplete="off" autofocus required>
                     </div>
-                    <div class="group-input">
-                        <i class="fas fa-lock"></i> <input type="password" name="password" placeholder="Contraseña"
-                            autocomplete="off" required>
-                    </div>
-                    <div class="group-input">
-                        <button type="submit" class="btn-rad btn-blue btn-block">Iniciar Sesión</button>
+                    <div class="group-input group-btn">
+                        <button type="submit" class="btn-rad btn-blue">Recuperar la contraseña</button>
+                        <a routerLink = '/users/login' class="btn-rad btn-red">Cancelar</a>
                     </div>
                 </form>
-                <div class="forgetPass">
-                    <a routerLink="/users/forgot">Olvidé mi contraseña</a>
-                </div>
             </div>
         </div>
     </div>
