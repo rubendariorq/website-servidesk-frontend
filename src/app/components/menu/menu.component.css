@@ -1,0 +1,89 @@
+a{
+    text-decoration: none;
+}
+
+.actions a{
+    padding: 10px 10px 10px 25px;
+    display: block;
+    color: #aaadb7;
+}
+
+.active, .actions a:hover{
+    background-color: #00aa99;
+    color: #FFFFFF !important;
+    cursor: pointer;
+}
+
+.actions ul li{
+    list-style: none;
+}
+
+.actions ul li i{
+    font-size: 1.2em;
+}
+
+.actions .icon{
+    padding-right: 10px;
+    float: left;
+}
+
+.actions ul ul{
+    background-color: #1c2228;
+}
+
+.head-menu{
+    padding: 8px 25px;
+    display: flex;
+    align-items: center;
+}
+
+.infoUser{
+    padding: 20px;
+    font-size: 1.1em;
+    border-bottom: 1px solid #494949;
+}
+
+.infoUser .name{
+    font-weight: bold;
+}
+
+.infoUser .typeUser{
+    font-size: 0.9em;
+}
+
+.menu{
+    background-color: #232b32;
+    height: 100%;
+    width: 225px;
+    float: left;
+    color: #aaadb7;
+    font-size: 0.8em;
+}
+
+.logotipo, .actions{
+    background-color: #232b32;
+}
+
+.logotipo span{
+    font-size: 1.5em;
+}
+
+.logotipo i{
+    margin: 11px 5px;
+}
+
+.logotipo{
+    background-color: #1c2228;
+    text-align: center;
+}
+
+@media screen and (min-width: 1400px){
+    .menu{
+        width: 250px;
+        font-size: 0.9em;
+    }
+
+    .logotipo i{
+        margin: 17px 5px;
+    }
+}

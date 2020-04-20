@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './components/login/login.component';
 import { ForgotComponent } from './components/forgot/forgot.component';
+import { DependencesListComponent } from './components/dependences-list/dependences-list.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'users/forgot',
     component: ForgotComponent
+  },
+  {
+    path: 'dependencies',
+    component: DependencesListComponent
   }
 ];
 

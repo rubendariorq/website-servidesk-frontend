@@ -5,12 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotComponent } from './components/forgot/forgot.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { DependencesListComponent } from './components/dependences-list/dependences-list.component';
+import { LogoutBarComponent } from './components/logout-bar/logout-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ForgotComponent,
+    MenuComponent,
+    DependencesListComponent,
+    LogoutBarComponent,
   ],
   imports: [
     BrowserModule,

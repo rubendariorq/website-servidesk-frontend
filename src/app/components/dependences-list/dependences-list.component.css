@@ -1,0 +1,106 @@
+a{
+    text-decoration: none;
+}
+
+.btn-blue{
+    background-color: #00aa99;
+    border-color: rgb(0, 170, 153);
+    color: #FFF;
+}
+
+.btn-secundary{
+    padding: 5px 10px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    color: #FFFFFF;
+    position: relative;
+}
+
+.btn-secundary:before {
+    content:"";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+}
+.btn-secundary:hover:before {
+    width: 100%;
+}
+
+.container{
+    margin-left: 225px;
+}
+
+.content{
+    padding: 30px 40px;
+    color: #17252A;
+    font-size: 0.8em;
+}
+
+.card{
+    background-color: #FFFFFF;
+}
+
+.card-header{
+    padding: 20px;
+    background-color: #00aa99;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.card-body{
+    padding: 20px 10px;
+}
+
+.fas{
+    margin-left: 5px;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.fa-edit{
+    background-color: #4aaa4e;
+    border-color: #419944;
+    color: #FFF;
+}
+
+.fa-trash{
+    background-color: #e93632;
+    border-color: #c72825;
+    color: #FFF;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table tr{
+    border-bottom: 1px solid #ebebeb;
+}
+
+table tr td:nth-child(2){
+    text-align: left;
+}
+
+table th, table td{
+    padding: 5px
+}
+
+table tbody tr:hover{
+    background: rgba(0, 170, 153, 0.1);
+}
+
+@media screen and (min-width: 1400px){
+    .container{
+        margin-left: 250px;
+    }
+
+    .content{
+        font-size: 1em;
+    }
+}

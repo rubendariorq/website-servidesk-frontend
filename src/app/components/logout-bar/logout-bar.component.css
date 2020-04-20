@@ -1,0 +1,51 @@
+a{
+    text-decoration: none;
+}
+
+.bar{
+    background-color: #FFFFFF;
+    padding: 8px 20px;
+    display: flex;
+    box-shadow: #333333 3px -6px 13px;
+}
+
+.bar .title{
+    color: #9b9ea7;
+    font-size: 1.1em;
+}
+
+.bar .logout{
+    margin-left: auto;
+    font-size: 0.8em;
+}
+
+.bar .logout:hover{
+    cursor: pointer;
+}
+
+.btn-primary{
+    padding: 5px 10px;
+    background-color: #00aa99;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+.btn-red{
+    background-color: #e93632;
+    border-color: #c72825;
+    color: #FFF;
+}
+
+@media screen and (min-width: 1400px){
+    .bar{
+        padding: 13px 20px;
+    }
+
+    .bar .title{
+        font-size: 1.3em;
+    }
+
+    .bar .logout{
+        font-size: 1em;
+    }
+}
