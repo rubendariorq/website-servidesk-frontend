@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ForgotComponent } from './components/forgot/forgot.component';
 import { DependencesListComponent } from './components/dependences-list/dependences-list.component';
 import { DependenciesAddComponent } from './components/dependencies-add/dependencies-add.component';
+import { DependenciesEditComponent } from './components/dependencies-edit/dependencies-edit.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'add-dependencie',
     component: DependenciesAddComponent
+  },
+  {
+    path: 'edit-dependencie',
+    component: DependenciesEditComponent
   }
 ];
 
