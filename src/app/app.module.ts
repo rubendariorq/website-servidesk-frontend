@@ -8,6 +8,7 @@ import { ForgotComponent } from './components/forgot/forgot.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { DependencesListComponent } from './components/dependences-list/dependences-list.component';
 import { LogoutBarComponent } from './components/logout-bar/logout-bar.component';
+import { DependenciesAddComponent } from './components/dependencies-add/dependencies-add.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { LogoutBarComponent } from './components/logout-bar/logout-bar.component
     MenuComponent,
     DependencesListComponent,
     LogoutBarComponent,
+    DependenciesAddComponent,
   ],
   imports: [
     BrowserModule,

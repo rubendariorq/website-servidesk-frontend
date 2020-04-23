@@ -5,7 +5,7 @@ a{
 .actions a{
     padding: 10px 10px 10px 25px;
     display: block;
-    color: #aaadb7;
+    color: #cecece;
 }
 
 .active, .actions a:hover{
@@ -19,7 +19,7 @@ a{
 }
 
 .actions ul li i{
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 
 .actions .icon{
@@ -56,8 +56,12 @@ a{
     height: 100%;
     width: 225px;
     float: left;
-    color: #aaadb7;
+    color: #cecece;
     font-size: 0.8em;
+}
+
+.menu .head-menu .text label{
+    color: #cecece;
 }
 
 .logotipo, .actions{

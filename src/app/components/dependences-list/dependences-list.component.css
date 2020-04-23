@@ -30,7 +30,7 @@ a{
     width: 100%;
 }
 
-.container{
+.main-container{
     margin-left: 225px;
 }
 
@@ -42,6 +42,7 @@ a{
 
 .card{
     background-color: #FFFFFF;
+    border-radius: 5px;
 }
 
 .card-header{
@@ -83,7 +84,7 @@ table tr{
     border-bottom: 1px solid #ebebeb;
 }
 
-table tr td:nth-child(2){
+table tbody tr td:nth-child(2){
     text-align: left;
 }
 
@@ -96,7 +97,7 @@ table tbody tr:hover{
 }
 
 @media screen and (min-width: 1400px){
-    .container{
+    .main-container{
         margin-left: 250px;
     }
 

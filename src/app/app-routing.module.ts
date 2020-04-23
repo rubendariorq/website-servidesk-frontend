@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotComponent } from './components/forgot/forgot.component';
 import { DependencesListComponent } from './components/dependences-list/dependences-list.component';
+import { DependenciesAddComponent } from './components/dependencies-add/dependencies-add.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'dependencies',
     component: DependencesListComponent
+  },
+  {
+    path: 'add-dependencie',
+    component: DependenciesAddComponent
   }
 ];
 
