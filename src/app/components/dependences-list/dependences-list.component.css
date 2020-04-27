@@ -26,8 +26,20 @@ a{
     background: rgba(255, 255, 255, 0.1);
     transition: all 0.5s ease;
 }
+
 .btn-secundary:hover:before {
     width: 100%;
+}
+
+.btnAction{
+    margin-left: 5px;
+    padding: 7px;
+    border-radius: 5px;
+    border: 0px;
+}
+
+.btnAction:hover{
+    cursor: pointer;
 }
 
 .main-container{
@@ -56,19 +68,13 @@ a{
     padding: 20px 10px;
 }
 
-.fas{
-    margin-left: 5px;
-    padding: 7px;
-    border-radius: 5px;
-}
-
-.fa-edit{
+.edit{
     background-color: #4aaa4e;
     border-color: #419944;
     color: #FFF;
 }
 
-.fa-trash{
+.delete{
     background-color: #e93632;
     border-color: #c72825;
     color: #FFF;
@@ -99,6 +105,10 @@ table tbody tr:hover{
 @media screen and (min-width: 1400px){
     .main-container{
         margin-left: 250px;
+    }
+
+    .btnAction{
+        font-size: 1em;
     }
 
     .content{

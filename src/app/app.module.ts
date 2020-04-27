@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
+//Components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -10,6 +12,9 @@ import { DependencesListComponent } from './components/dependences-list/dependen
 import { LogoutBarComponent } from './components/logout-bar/logout-bar.component';
 import { DependenciesAddComponent } from './components/dependencies-add/dependencies-add.component';
 import { DependenciesEditComponent } from './components/dependencies-edit/dependencies-edit.component';
+
+//Services
+import { DependenciesService } from './services/dependencies.service';
 
 @NgModule({
   declarations: [
@@ -24,9 +29,12 @@ import { DependenciesEditComponent } from './components/dependencies-edit/depend
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    DependenciesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

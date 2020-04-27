@@ -16,28 +16,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Sistemas</td>
+                        <tr *ngFor="let dependencie of dependencies; let i=index">
+                            <td>{{i+1}}</td>
+                            <td>{{dependencie.name}}</td>
                             <td>
-                                <a routerLink="/edit-dependencie"><i class="fas fa-edit"></i></a>
-                                <a routerLink="/delete-dependencie"><i class="fas fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Sistemas</td>
-                            <td>
-                                <a routerLink="/edit-dependencie"><i class="fas fa-edit"></i></a>
-                                <a routerLink="/delete-dependencie"><i class="fas fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Sistemas</td>
-                            <td>
-                                <a routerLink="/edit-dependencie"><i class="fas fa-edit"></i></a>
-                                <a routerLink="/delete-dependencie"><i class="fas fa-trash"></i></a>
+                                <button class="btnAction edit" (click)="editDependencie(dependencie.id)"><i class="fas fa-edit"></i></button>
+                                <button class="btnAction delete" (click)="deleteDependencie(dependencie.id)"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
                     </tbody>

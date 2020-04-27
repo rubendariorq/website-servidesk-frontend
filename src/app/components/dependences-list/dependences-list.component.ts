@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+//Interfaces
+import { Dependencie } from "../../interfaces/Dependencie";
+
+//Services
+import { DependenciesService } from '../../services/dependencies.service';
+
 @Component({
   selector: 'app-dependences-list',
   templateUrl: './dependences-list.component.html',
@@ -7,10 +13,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DependencesListComponent implements OnInit {
 
-  title:String = "Dependencias";
+  title: String = "Dependencias";
+  dependencies: any = [];
 
-  constructor() { }
+  constructor(private dependenciesService: DependenciesService) { }
 
   ngOnInit() {
+    this.getDependencies();
+  }
+
+  getDependencies() {
+    this.dependenciesService.getDependencies().subscribe(
+      res => {
+        this.dependencies = res;
+      },
+      err => console.error(err)
+    );
   }
 }
