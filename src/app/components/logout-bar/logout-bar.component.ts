@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DependencesListComponent } from '../dependences-list/dependences-list.component';
+import { DependenciesAddComponent } from '../dependencies-add/dependencies-add.component';
 
 @Component({
   selector: 'app-logout-bar',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./logout-bar.component.css']
 })
 export class LogoutBarComponent implements OnInit {
+
+  @Input() title: string;
 
   constructor() { }
 
