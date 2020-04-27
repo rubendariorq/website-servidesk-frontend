@@ -6,10 +6,10 @@
             <form>
                 <div class="group-input">
                     <label>Nombre de la dependencia:</label>
-                    <input type="text" id="name-dependencie">
+                    <input type="text" name="name" [(ngModel)]="dependencie.name">
                 </div>
                 <div class="group-buttons">
-                    <button type="submit" class="btn-primary btn-blue">Crear</button>
+                    <button class="btn-primary btn-blue" (click)="createDependencie()">Crear</button>
                     <a routerLink="/dependencies" class="btn-primary btn-red">Cancelar</a>
                 </div>
             </form>
