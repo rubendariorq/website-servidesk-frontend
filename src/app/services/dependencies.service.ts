@@ -23,4 +23,7 @@ export class DependenciesService {
     return this.http.post(`${this.API_URI}/dependencies`, dependencie);
   }
 
+  deleteDependencie(id: string): Observable<any>{
+    return this.http.delete(`${this.API_URI}/dependencies/${id}`);
+  }
 }
