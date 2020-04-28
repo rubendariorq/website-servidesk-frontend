@@ -58,6 +58,7 @@ a{
     float: left;
     color: #cecece;
     font-size: 0.8em;
+    position: fixed;
 }
 
 .menu .head-menu .text label{
