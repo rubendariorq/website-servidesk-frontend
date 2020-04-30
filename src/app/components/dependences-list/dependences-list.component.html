@@ -4,7 +4,7 @@
     <div class="content">
         <div class="card">
             <div class="card-header">
-                <a routerLink="/add-dependencie" class="btn-rad btn-blue btn-secundary">Agregar dependencia</a>
+                <a routerLink="/dependencie/add" class="btn-rad btn-blue btn-secundary">Agregar dependencia</a>
             </div>
             <div class="card-body">
                 <table>
@@ -20,7 +20,7 @@
                             <td>{{i+1}}</td>
                             <td>{{dependencie.name}}</td>
                             <td>
-                                <button class="btnAction edit" (click)="editDependencie(dependencie.id)"><i class="fas fa-edit"></i></button>
+                                <a routerLink="/dependencie/edit/{{dependencie.id}}" class="btnAction edit"><i class="fas fa-edit"></i></a>
                                 <button class="btnAction delete" (click)="deleteDependencie(dependencie.id)"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>

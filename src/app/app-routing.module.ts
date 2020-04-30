@@ -26,11 +26,11 @@ const routes: Routes = [
     component: DependencesListComponent
   },
   {
-    path: 'add-dependencie',
+    path: 'dependencie/add',
     component: DependenciesAddComponent
   },
   {
-    path: 'edit-dependencie',
+    path: 'dependencie/edit/:id',
     component: DependenciesEditComponent
   }
 ];
