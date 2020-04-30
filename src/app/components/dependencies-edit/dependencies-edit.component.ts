@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 
 //Interface
 import { Dependencie } from "../../interfaces/Dependencie";
+import { ConnectionLost } from "../../interfaces/ConnectionLost";
 
 //Services
 import { DependenciesService } from "../../services/dependencies.service";
@@ -18,6 +19,7 @@ export class DependenciesEditComponent implements OnInit {
 
   title: String = "Dependencias";
   aux = [];
+  connectionLost: ConnectionLost;
   dependencie: Dependencie = {
     id: 0,
     name: ''
@@ -26,21 +28,45 @@ export class DependenciesEditComponent implements OnInit {
   constructor(private dependenciesServices: DependenciesService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.getDependencie();
+  }
+
+  getDependencie() {
     const params = this.activatedRoute.snapshot.params;
     if (params.id) {
+      Swal.fire({
+        title: 'Espere un momento',
+        text: 'Estamos realizando la consulta',
+        timerProgressBar: true,
+        onBeforeOpen: () => {
+          Swal.showLoading()
+        }
+      });
       this.dependenciesServices.getDependencie(params.id)
         .subscribe(
           res => {
-            this.aux = res;
-            if (this.aux.length == 0) {
-              this.router.navigate(['/dependencies']);
-              Swal.fire({
-                icon: 'warning',
-                text: 'La dependencia no existe',
-                confirmButtonColor: '#00aa99'
-              });
+            console.log(res);
+
+            this.connectionLost = res;
+            document.querySelector('div[class="swal2-container swal2-center swal2-backdrop-show"]').remove();
+            if (this.connectionLost.code == "ETIMEDOUT") {
+              console.log('Conexión perdida. Reconectando...');
+              this.getDependencie();
             } else {
-              this.dependencie = res[0];
+              this.aux = res;
+              if (this.aux.length == 0) {
+                Swal.fire({
+                  icon: 'warning',
+                  text: 'La dependencia no existe',
+                  confirmButtonColor: '#00aa99'
+                }).then(result => {
+                  if (result.value) {
+                    this.router.navigate(['/dependencies']);
+                  }
+                });
+              } else {
+                this.dependencie = res[0];
+              }
             }
           },
           err => console.error(err)
@@ -57,15 +83,35 @@ export class DependenciesEditComponent implements OnInit {
       });
     } else {
       if (this.dependencie.name.length < 100) {
+        Swal.fire({
+          title: 'Espere un momento',
+          text: 'Estamos realizando la consulta',
+          timerProgressBar: true,
+          onBeforeOpen: () => {
+            Swal.showLoading()
+          }
+        });
         this.dependenciesServices.editDependencie(id, this.dependencie)
           .subscribe(
             res => {
-              this.router.navigate(['/dependencies']);
-              Swal.fire({
-                icon: 'success',
-                text: 'La dependencia ha sido modificada con éxito',
-                confirmButtonColor: '#00aa99'
-              });
+              console.log(res);
+
+              this.connectionLost = res;
+              document.querySelector('div[class="swal2-container swal2-center swal2-backdrop-show"]').remove();
+              if (this.connectionLost.code == "ETIMEDOUT") {
+                console.log('Conexión perdida. Reconectando...');
+                this.updateDependencie(id);
+              } else {
+                Swal.fire({
+                  icon: 'success',
+                  text: 'La dependencia ha sido modificada con éxito',
+                  confirmButtonColor: '#00aa99'
+                }).then(result =>  {
+                  if(result.value){
+                    this.router.navigate(['/dependencies']);
+                  }
+                });
+              }
             },
             err => console.error(err)
           );

@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 
 //Interfaces
 import { Dependencie } from "../../interfaces/Dependencie";
+import { ConnectionLost } from "../../interfaces/ConnectionLost";
 
 //Services
 import { DependenciesService } from "../../services/dependencies.service";
@@ -16,6 +17,7 @@ import { DependenciesService } from "../../services/dependencies.service";
 export class DependenciesAddComponent implements OnInit {
 
   title: String = "Dependencias";
+  connectionLost: ConnectionLost;
   dependencie: Dependencie = {
     id: 0,
     name: ''
@@ -35,21 +37,40 @@ export class DependenciesAddComponent implements OnInit {
       });
     } else {
       if (this.dependencie.name.length < 100) {
+        Swal.fire({
+          title: 'Espere un momento',
+          text: 'Estamos realizando la consulta',
+          timerProgressBar: true,
+          onBeforeOpen: () => {
+            Swal.showLoading()
+          }
+        });
         this.dependenciesService.createDependencie(this.dependencie)
           .subscribe(
             res => {
               console.log(res);
-              this.router.navigate(['/dependencies']);
-              Swal.fire({
-                title: 'Hecho',
-                text: 'La dependencia se creó con exito',
-                icon: 'success',
-                confirmButtonColor: '#00aa99'
-              });
+
+              this.connectionLost = res;
+              document.querySelector('div[class="swal2-container swal2-center swal2-backdrop-show"]').remove();
+              if (this.connectionLost.code == 'ETIMEDOUT') {
+                console.log('Conexión perdida. Reconectando...');
+                this.createDependencie();
+              } else {
+                Swal.fire({
+                  title: 'Hecho',
+                  text: 'La dependencia se creó con exito',
+                  icon: 'success',
+                  confirmButtonColor: '#00aa99'
+                }).then((result) => {
+                  if (result.value) {
+                    this.router.navigate(['/dependencies']);
+                  }
+                });
+              }
             },
             err => console.error(err)
           )
-      }else{
+      } else {
         Swal.fire({
           icon: 'warning',
           text: 'Solo se permite máximo 100 caracteres',

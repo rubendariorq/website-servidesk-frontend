@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from "sweetalert2";
 
+//Interfaces
+import { ConnectionLost } from "../../interfaces/ConnectionLost";
+
 //Services
 import { DependenciesService } from '../../services/dependencies.service';
 
@@ -13,6 +16,7 @@ export class DependencesListComponent implements OnInit {
 
   title: String = "Dependencias";
   dependencies: any = [];
+  connectionLost: ConnectionLost;
 
   constructor(private dependenciesService: DependenciesService) { }
 
@@ -21,9 +25,26 @@ export class DependencesListComponent implements OnInit {
   }
 
   getDependencies() {
+    Swal.fire({
+      title: 'Espere un momento',
+      text: 'Estamos realizando la consulta',
+      timerProgressBar: true,
+      onBeforeOpen: () => {
+        Swal.showLoading()
+      }
+    });
     this.dependenciesService.getDependencies().subscribe(
       res => {
-        this.dependencies = res;
+        console.log(res);
+
+        this.connectionLost = res;
+        document.querySelector('div[class="swal2-container swal2-center swal2-backdrop-show"]').remove();
+        if (this.connectionLost.code == 'ETIMEDOUT') {
+          console.log('Conexión perdida. Reconectando...');
+          this.getDependencies();
+        } else {
+          this.dependencies = res;
+        }
       },
       err => console.error(err)
     );
@@ -40,15 +61,35 @@ export class DependencesListComponent implements OnInit {
       confirmButtonText: 'Aceptar'
     }).then((result) => {
       if (result.value) {
+        Swal.fire({
+          title: 'Espere un momento',
+          text: 'Estamos realizando la consulta',
+          timerProgressBar: true,
+          onBeforeOpen: () => {
+            Swal.showLoading()
+          }
+        });
         this.dependenciesService.deleteDependencie(id).subscribe(
           res => {
-            this.getDependencies();
-            Swal.fire({
-              icon: 'success',
-              title: 'Hecho',
-              text: 'La dependencia se ha borrado con éxito',
-              confirmButtonColor: '#00aa99'
-            });
+            console.log(res);
+
+            this.connectionLost = res;
+            document.querySelector('div[class="swal2-container swal2-center swal2-backdrop-show"]').remove();
+            if (this.connectionLost.code == 'ETIMEDOUT') {
+              console.log('Conexión perdida. Reconectando...');
+              this.deleteDependencie(id);
+            } else {
+              Swal.fire({
+                icon: 'success',
+                title: 'Hecho',
+                text: 'La dependencia se ha borrado con éxito',
+                confirmButtonColor: '#00aa99'
+              }).then(result => {
+                if (result.value) {
+                  this.getDependencies();
+                }
+              });
+            }
           },
           err => console.error(err)
         );
