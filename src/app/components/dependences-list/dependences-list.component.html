@@ -18,7 +18,7 @@
                     <tbody>
                         <tr *ngFor="let dependencie of dependencies; let i=index">
                             <td>{{i+1}}</td>
-                            <td>{{dependencie.name}}</td>
+                            <td>{{dependencie.name_dependencie}}</td>
                             <td>
                                 <a routerLink="/dependencie/edit/{{dependencie.id}}" class="btnAction edit"><i class="fas fa-edit"></i></a>
                                 <button class="btnAction delete" (click)="deleteDependencie(dependencie.id)"><i class="fas fa-trash"></i></button>

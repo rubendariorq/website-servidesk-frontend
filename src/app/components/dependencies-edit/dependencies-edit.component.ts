@@ -22,7 +22,7 @@ export class DependenciesEditComponent implements OnInit {
   connectionLost: ConnectionLost;
   dependencie: Dependencie = {
     id: 0,
-    name: ''
+    name_dependencie: ''
   };
 
   constructor(private dependenciesServices: DependenciesService, private activatedRoute: ActivatedRoute, private router: Router) { }
@@ -75,14 +75,14 @@ export class DependenciesEditComponent implements OnInit {
   }
 
   updateDependencie(id: string): void {
-    if (this.dependencie.name == '') {
+    if (this.dependencie.name_dependencie == '') {
       Swal.fire({
         icon: 'warning',
         text: 'Debe llenar todos los campos',
         confirmButtonColor: '#00aa99'
       });
     } else {
-      if (this.dependencie.name.length < 100) {
+      if (this.dependencie.name_dependencie.length < 100) {
         Swal.fire({
           title: 'Espere un momento',
           text: 'Estamos realizando la consulta',
