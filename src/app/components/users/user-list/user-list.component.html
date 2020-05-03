@@ -1,0 +1,40 @@
+<app-menu></app-menu>
+<div class="main-container">
+    <app-logout-bar [title]=title></app-logout-bar>
+    <div class="content">
+        <div class="card">
+            <div class="card-header">
+                <a routerLink="/user/add" class="btn-rad btn-blue btn-secundary">Agregar usuario</a>
+            </div>
+            <div class="card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="5%">No.</th>
+                            <th width="15%">Nombre</th>
+                            <th width="15%">Apellido</th>
+                            <th width="25%">Dependencia</th>
+                            <th width="10%">Estado</th>
+                            <th width="15%">Tipo de usuario</th>
+                            <th width="15%">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users; let i = index">
+                            <td width="5%">{{i+1}}</td>
+                            <td width="15%">{{user.first_name}}</td>
+                            <td width="15%">{{user.last_name}}</td>
+                            <td width="25%">{{user.name_dependencie}}</td>
+                            <td width="10%">{{user.status}}</td>
+                            <td width="15%">{{user.type_employee_ti}}</td>
+                            <td width="15%">
+                                <a class="btnAction edit"><i class="fas fa-edit"></i></a>
+                                <button class="btnAction delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

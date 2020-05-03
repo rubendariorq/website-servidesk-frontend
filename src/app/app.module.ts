@@ -13,9 +13,11 @@ import { DependencesListComponent } from './components/dependences-list/dependen
 import { LogoutBarComponent } from './components/logout-bar/logout-bar.component';
 import { DependenciesAddComponent } from './components/dependencies-add/dependencies-add.component';
 import { DependenciesEditComponent } from './components/dependencies-edit/dependencies-edit.component';
+import { UserListComponent } from './components/users/user-list/user-list.component';
 
 //Services
 import { DependenciesService } from './services/dependencies.service';
+import { UserService } from "./services/user/user.service";
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { DependenciesService } from './services/dependencies.service';
     LogoutBarComponent,
     DependenciesAddComponent,
     DependenciesEditComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { DependenciesService } from './services/dependencies.service';
     FormsModule
   ],
   providers: [
-    DependenciesService
+    DependenciesService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

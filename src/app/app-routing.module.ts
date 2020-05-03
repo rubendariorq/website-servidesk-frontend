@@ -6,6 +6,7 @@ import { ForgotComponent } from './components/forgot/forgot.component';
 import { DependencesListComponent } from './components/dependences-list/dependences-list.component';
 import { DependenciesAddComponent } from './components/dependencies-add/dependencies-add.component';
 import { DependenciesEditComponent } from './components/dependencies-edit/dependencies-edit.component';
+import { UserListComponent } from "./components/users/user-list/user-list.component";
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'dependencie/edit/:id',
     component: DependenciesEditComponent
+  },
+  {
+    path: 'users',
+    component: UserListComponent 
   }
 ];
 
