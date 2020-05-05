@@ -18,6 +18,7 @@ import { UserListComponent } from './components/users/user-list/user-list.compon
 //Services
 import { DependenciesService } from './services/dependencies.service';
 import { UserService } from "./services/user/user.service";
+import { UserAddComponent } from './components/users/user-add/user-add.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { UserService } from "./services/user/user.service";
     DependenciesAddComponent,
     DependenciesEditComponent,
     UserListComponent,
+    UserAddComponent,
   ],
   imports: [
     BrowserModule,

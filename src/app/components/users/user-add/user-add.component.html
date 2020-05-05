@@ -1,0 +1,46 @@
+<app-menu></app-menu>
+<div class="main-container">
+    <app-logout-bar [title]=title></app-logout-bar>
+    <div class="content">
+        <div class="card">
+            <form>
+                <div class="group-input">
+                    <label>Email:</label>
+                    <input type="email" name="user.email" [(ngModel)] = "user.email">
+                </div>
+                <div class="group-input">
+                    <label>Primer nombre:</label>
+                    <input type="text" name="user.first_name" [(ngModel)] = "user.first_name">
+                </div>
+                <div class="group-input">
+                    <label>Primer apellido:</label>
+                    <input type="text" name="user.last_name" [(ngModel)] = "user.last_name">
+                </div>
+                <div class="group-input">
+                    <label>Contraseña:</label>
+                    <input type="password" name="user.password" [(ngModel)] = "user.password" disabled>
+                    <button class="btn-secundary" (click) = "generatePassword()">Generar contraseña</button>
+                </div>
+                <div class="group-input">
+                    <label>Tipo de usuario:</label>
+                    <select name="user.type_employee_ti" [(ngModel)] = "user.type_employee_ti">
+                        <option value="" selected>Seleccione un tipo de usuario</option>
+                        <option value="Tecnico">Tecnico</option>
+                        <option value="Funcionario">Funcionario</option>
+                    </select>
+                </div>
+                <div class="group-input">
+                    <label>Dependencia:</label>
+                    <select name="user.dependencies_id" [(ngModel)] = "user.dependencies_id">
+                        <option value="0" selected>Seleccione una dependencia</option>
+                        <option value="{{dependencie.id}}" *ngFor = "let dependencie of dependencies">{{dependencie.name_dependencie}}</option>
+                    </select>
+                </div>
+                <div class="group-buttons">
+                    <button class="btn-primary btn-blue" (click) = "addUser()">Crear</button>
+                    <a routerLink="/users" class="btn-primary btn-red">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

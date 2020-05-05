@@ -7,6 +7,7 @@ import { DependencesListComponent } from './components/dependences-list/dependen
 import { DependenciesAddComponent } from './components/dependencies-add/dependencies-add.component';
 import { DependenciesEditComponent } from './components/dependencies-edit/dependencies-edit.component';
 import { UserListComponent } from "./components/users/user-list/user-list.component";
+import { UserAddComponent } from "./components/users/user-add/user-add.component";
 
 const routes: Routes = [
   {
@@ -27,16 +28,20 @@ const routes: Routes = [
     component: DependencesListComponent
   },
   {
-    path: 'dependencie/add',
+    path: 'dependencies/add',
     component: DependenciesAddComponent
   },
   {
-    path: 'dependencie/edit/:id',
+    path: 'dependencies/edit/:id',
     component: DependenciesEditComponent
   },
   {
     path: 'users',
     component: UserListComponent 
+  },
+  {
+    path: 'users/add',
+    component: UserAddComponent
   }
 ];
 
