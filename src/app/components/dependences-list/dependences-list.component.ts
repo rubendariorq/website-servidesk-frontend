@@ -43,7 +43,16 @@ export class DependencesListComponent implements OnInit {
           console.log('Conexión perdida. Reconectando...');
           this.getDependencies();
         } else {
-          this.dependencies = res;
+          if(res[0] == undefined){
+            Swal.fire({
+              icon: 'warning',
+              title: 'Aviso',
+              text: 'No hay dependencias registradas',
+              confirmButtonColor: '00aa99'
+            })
+          }else{
+            this.dependencies = res;
+          }
         }
       },
       err => console.error(err)
