@@ -8,8 +8,6 @@ export interface User{
     status: string,
     failde_attempts: number,
     dependencies_id: number,
-    type_employee_ti: string,
-    users_email: string,
     id: number,
     name_dependencie: string
 }

@@ -30,8 +30,6 @@ export class UserAddComponent implements OnInit {
     status: "",
     failde_attempts: 0,
     dependencies_id: 0,
-    type_employee_ti: "",
-    users_email: "",
     id: 0,
     name_dependencie: ""
   }
@@ -43,7 +41,7 @@ export class UserAddComponent implements OnInit {
   }
 
   addUser() {
-    if (this.user.email == "" || this.user.first_name == "" || this.user.last_name == "" || this.user.password == "" || this.user.type_employee_ti == "" || this.user.dependencies_id == 0) {
+    if (this.user.email == "" || this.user.first_name == "" || this.user.last_name == "" || this.user.password == "" || this.user.type_user == "" || this.user.dependencies_id == 0) {
       Swal.fire({
         icon: 'warning',
         text: 'Debe llenar todos los campos',
@@ -53,12 +51,6 @@ export class UserAddComponent implements OnInit {
     } else {
       const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
       if (emailRegex.test(this.user.email)) {
-        if (this.user.type_employee_ti == "Tecnico") {
-          this.user.type_user = "FuncionarioTI";
-        } else {
-          this.user.type_user = this.user.type_employee_ti;
-        }
-
         let today = new Date();
         let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         this.user.password_changed_date = date;
@@ -76,11 +68,20 @@ export class UserAddComponent implements OnInit {
           .subscribe(
             res => {
               console.log(res);
+
+              Swal.fire({
+                title: 'Hecho',
+                text: 'El usuario se creó con exito',
+                icon: 'success',
+                confirmButtonColor: '#00aa99'
+              }).then((result) => {
+                if (result.value) {
+                  this.router.navigate(['/users']);
+                }
+              });
             },
             err => console.error(err)
           );
-
-
       } else {
         Swal.fire({
           icon: 'error',
