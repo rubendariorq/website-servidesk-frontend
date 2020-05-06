@@ -9,9 +9,10 @@
                 </div>
                 <div class="filters">
                     <label>Filtros</label>
-                    <select name="" (change) = "getUsersForDependencie($event.target.value)">
-                        <option value=""  selected>Dependencia</option>
-                        <option value="{{dependencie.name_dependencie}}" *ngFor = "let dependencie of dependencies">{{dependencie.name_dependencie}}</option>
+                    <select name="" (change)="getUsersForDependencie($event.target.value)">
+                        <option value="" selected>Dependencia</option>
+                        <option value="{{dependencie.name_dependencie}}" *ngFor="let dependencie of dependencies">
+                            {{dependencie.name_dependencie}}</option>
                     </select>
                     <select name="">
                         <option value="" selected>Estado</option>
@@ -20,7 +21,6 @@
                     </select>
                     <select name="">
                         <option value="" selected>Tipo de usuario</option>
-                        <option value="">Profesional</option>
                         <option value="">Tecnico</option>
                         <option value="">Funcionario</option>
                     </select>

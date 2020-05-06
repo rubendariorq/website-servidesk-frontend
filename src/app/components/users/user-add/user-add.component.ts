@@ -68,17 +68,27 @@ export class UserAddComponent implements OnInit {
           .subscribe(
             res => {
               console.log(res);
+              document.querySelector('div[class="swal2-container swal2-center swal2-backdrop-show"]').remove();
 
-              Swal.fire({
-                title: 'Hecho',
-                text: 'El usuario se creó con exito',
-                icon: 'success',
-                confirmButtonColor: '#00aa99'
-              }).then((result) => {
-                if (result.value) {
-                  this.router.navigate(['/users']);
-                }
-              });
+              if (res.message.indexOf("Duplicate entry") >= 0) {
+                Swal.fire({
+                  icon: 'warning',
+                  title: 'Aviso',
+                  text: 'El correo ingresado ya existe',
+                  confirmButtonColor: '00aa99'
+                })
+              } else {
+                Swal.fire({
+                  title: 'Hecho',
+                  text: 'El usuario se creó con exito',
+                  icon: 'success',
+                  confirmButtonColor: '#00aa99'
+                }).then((result) => {
+                  if (result.value) {
+                    this.router.navigate(['/users']);
+                  }
+                });
+              }
             },
             err => console.error(err)
           );
