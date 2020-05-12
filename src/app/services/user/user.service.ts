@@ -18,6 +18,18 @@ export class UserService {
     return this.http.get(`${this.API_URI}/users`);
   }
 
+  getUsersForDependencie(dependencie:String): Observable<any>{
+    return this.http.get(`${this.API_URI}/users/filter/dependencie/${dependencie}`);
+  }
+
+  getUsersForTypeUser(typeUser:String): Observable<any>{
+    return this.http.get(`${this.API_URI}/users/filter/type-user/${typeUser}`);
+  }
+
+  getUsersForStatus(status:String): Observable<any>{
+    return this.http.get(`${this.API_URI}/users/filter/status/${status}`);
+  }
+
   addUser(user:User): Observable<any>{
     return this.http.post(`${this.API_URI}/users`, user);
   }

@@ -21,6 +21,9 @@ export class UserListComponent implements OnInit {
   title: string = 'Usuarios';
   dependencies: any = []
   users: any = [];
+  selectStatus = "";
+  selectTypeUser = "";
+  selectDependencie = "";
 
   constructor(private userService: UserService, private dependenciesService: DependenciesService, private router: Router) { }
 
@@ -101,6 +104,138 @@ export class UserListComponent implements OnInit {
   }
 
   getUsersForDependencie(dependencie: string) {
-    console.log(dependencie);
+    this.selectStatus = "";
+    this.selectTypeUser = "";
+    
+    if (dependencie != "") {
+      Swal.fire({
+        title: 'Espere un momento',
+        text: 'Estamos realizando la consulta',
+        timerProgressBar: true,
+        onBeforeOpen: () => {
+          Swal.showLoading()
+        }
+      });
+      this.userService.getUsersForDependencie(dependencie)
+        .subscribe(
+          res => {
+            console.log(res);
+            document.querySelector('div[class="swal2-container swal2-center swal2-backdrop-show"]').remove();
+
+            this.connectionLost = res;
+            if (this.connectionLost.code == 'ETIMEDOUT') {
+              console.log('Conexión perdida. Reconectando...');
+              this.getUsersForDependencie(dependencie);
+            } else {
+              if (res[0] == undefined) {
+                Swal.fire({
+                  icon: 'warning',
+                  title: 'Aviso',
+                  text: 'No hay usuarios registrados',
+                  confirmButtonColor: '00aa99'
+                })
+                this.users = [];
+              } else {
+                this.users = [];
+                this.users = res;
+              }
+            }
+          },
+          err => console.error(err)
+        );
+    } else {
+      this.getUsers();
+    }
   }
+
+  getUsersForStatus(status: string) {
+    this.selectDependencie = "";
+    this.selectTypeUser = "";
+
+    if (status != "") {
+      Swal.fire({
+        title: 'Espere un momento',
+        text: 'Estamos realizando la consulta',
+        timerProgressBar: true,
+        onBeforeOpen: () => {
+          Swal.showLoading()
+        }
+      });
+      this.userService.getUsersForStatus(status)
+        .subscribe(
+          res => {
+            console.log(res);
+            document.querySelector('div[class="swal2-container swal2-center swal2-backdrop-show"]').remove();
+
+            this.connectionLost = res;
+            if (this.connectionLost.code == 'ETIMEDOUT') {
+              console.log('Conexión perdida. Reconectando...');
+              this.getUsersForStatus(status);
+            } else {
+              if (res[0] == undefined) {
+                Swal.fire({
+                  icon: 'warning',
+                  title: 'Aviso',
+                  text: 'No hay usuarios registrados',
+                  confirmButtonColor: '00aa99'
+                })
+                this.users = [];
+              } else {
+                this.users = [];
+                this.users = res;
+              }
+            }
+          },
+          err => console.error(err)
+        );
+    } else {
+      this.getUsers();
+    }
+  }
+
+  getUsersForTypeUser(typeUser: string) {
+    this.selectDependencie = "";
+    this.selectStatus = "";
+
+    if (typeUser != "") {
+      Swal.fire({
+        title: 'Espere un momento',
+        text: 'Estamos realizando la consulta',
+        timerProgressBar: true,
+        onBeforeOpen: () => {
+          Swal.showLoading()
+        }
+      });
+      this.userService.getUsersForTypeUser(typeUser)
+        .subscribe(
+          res => {
+            console.log(res);
+            document.querySelector('div[class="swal2-container swal2-center swal2-backdrop-show"]').remove();
+
+            this.connectionLost = res;
+            if (this.connectionLost.code == 'ETIMEDOUT') {
+              console.log('Conexión perdida. Reconectando...');
+              this.getUsersForTypeUser(typeUser);
+            } else {
+              if (res[0] == undefined) {
+                Swal.fire({
+                  icon: 'warning',
+                  title: 'Aviso',
+                  text: 'No hay usuarios registrados',
+                  confirmButtonColor: '00aa99'
+                })
+                this.users = [];
+              } else {
+                this.users = [];
+                this.users = res;
+              }
+            }
+          },
+          err => console.error(err)
+        );
+    } else {
+      this.getUsers();
+    }
+  }
+
 }
