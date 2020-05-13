@@ -21,6 +21,7 @@ export class UserAddComponent implements OnInit {
   connectionLost: ConnectionLost;
   dependencies: any = [];
   user: User = {
+    id_user: 0,
     email: "",
     first_name: "",
     last_name: "",
@@ -30,7 +31,7 @@ export class UserAddComponent implements OnInit {
     status: "",
     failde_attempts: 0,
     dependencies_id: 0,
-    id: 0,
+    id_dependencie: 0,
     name_dependencie: ""
   }
 
@@ -64,34 +65,55 @@ export class UserAddComponent implements OnInit {
             Swal.showLoading()
           }
         });
-        this.userService.addUser(this.user)
+        this.userService.getUserForEmail(this.user.email)
           .subscribe(
             res => {
-              console.log(res);
-              document.querySelector('div[class="swal2-container swal2-center swal2-backdrop-show"]').remove();
-
-              if (res.message.indexOf("Duplicate entry") >= 0) {
-                Swal.fire({
-                  icon: 'warning',
-                  title: 'Aviso',
-                  text: 'El correo ingresado ya existe',
-                  confirmButtonColor: '00aa99'
-                })
+              this.connectionLost = res;
+              if (this.connectionLost.code == 'ETIMEDOUT') {
+                console.log('Conexión perdida. Reconectando...');
+                this.addUser();
               } else {
-                Swal.fire({
-                  title: 'Hecho',
-                  text: 'El usuario se creó con exito',
-                  icon: 'success',
-                  confirmButtonColor: '#00aa99'
-                }).then((result) => {
-                  if (result.value) {
-                    this.router.navigate(['/users']);
-                  }
-                });
+                console.log(res);
+                document.querySelector('div[class="swal2-container swal2-center swal2-backdrop-show"]').remove();
+
+                if (res.length > 0) {
+                  Swal.fire({
+                    icon: 'warning',
+                    title: 'Aviso',
+                    text: 'El correo ingresado ya existe',
+                    confirmButtonColor: '00aa99'
+                  })
+                } else {
+                  this.userService.addUser(this.user)
+                    .subscribe(
+                      res => {
+                        console.log(res);
+
+                        this.connectionLost = res;
+                        if (this.connectionLost.code == 'ETIMEDOUT') {
+                          console.log('Conexión perdida. Reconectando...');
+                          this.addUser();
+                        } else {
+                          Swal.fire({
+                            title: 'Hecho',
+                            text: 'El usuario se creó con exito',
+                            icon: 'success',
+                            confirmButtonColor: '#00aa99'
+                          }).then((result) => {
+                            if (result.value) {
+                              this.router.navigate(['/users']);
+                            }
+                          });
+                        }
+                      },
+                      err => console.error(err)
+                    );
+                }
               }
             },
             err => console.error(err)
           );
+
       } else {
         Swal.fire({
           icon: 'error',

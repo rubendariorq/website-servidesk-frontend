@@ -1,4 +1,5 @@
 export interface User{
+    id_user: number,
     email: string,
     first_name: string,
     last_name: string,
@@ -8,6 +9,6 @@ export interface User{
     status: string,
     failde_attempts: number,
     dependencies_id: number,
-    id: number,
+    id_dependencie: number,
     name_dependencie: string
 }

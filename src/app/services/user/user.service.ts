@@ -30,6 +30,10 @@ export class UserService {
     return this.http.get(`${this.API_URI}/users/filter/status/${status}`);
   }
 
+  getUserForEmail(email:String): Observable<any>{
+    return this.http.get(`${this.API_URI}/users/filter/email/${email}`);
+  }
+
   addUser(user:User): Observable<any>{
     return this.http.post(`${this.API_URI}/users`, user);
   }

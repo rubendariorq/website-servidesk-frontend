@@ -1,4 +1,4 @@
 export interface Dependencie{
-    id?: number;
-    name_dependencie: string;
+    id_dependencie: number,
+    name_dependencie: string
 }

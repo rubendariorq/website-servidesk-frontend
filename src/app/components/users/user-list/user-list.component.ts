@@ -80,17 +80,7 @@ export class UserListComponent implements OnInit {
                           confirmButtonColor: '00aa99'
                         })
                       } else {
-                        let i = 0;
-                        let data = res;
-                        let arrayAux = [];
-                        while (i < data.length) {
-                          let userAux: User = data[i];
-                          if (userAux.type_user != "Profesional") {
-                            arrayAux.push(userAux);
-                          }
-                          i++;
-                        }
-                        this.users = arrayAux;
+                        this.users = res;
                       }
                     }
                   },

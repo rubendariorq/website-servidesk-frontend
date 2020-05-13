@@ -33,7 +33,7 @@
                     <label>Dependencia:</label>
                     <select name="user.dependencies_id" [(ngModel)] = "user.dependencies_id">
                         <option value="0" selected>Seleccione una dependencia</option>
-                        <option value="{{dependencie.id}}" *ngFor = "let dependencie of dependencies">{{dependencie.name_dependencie}}</option>
+                        <option value="{{dependencie.id_dependencie}}" *ngFor = "let dependencie of dependencies">{{dependencie.name_dependencie}}</option>
                     </select>
                 </div>
                 <div class="group-buttons">

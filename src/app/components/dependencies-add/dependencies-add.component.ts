@@ -19,7 +19,7 @@ export class DependenciesAddComponent implements OnInit {
   title: String = "Dependencias";
   connectionLost: ConnectionLost;
   dependencie: Dependencie = {
-    id: 0,
+    id_dependencie: 0,
     name_dependencie: ''
   };
 

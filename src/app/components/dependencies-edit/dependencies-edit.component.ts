@@ -21,7 +21,7 @@ export class DependenciesEditComponent implements OnInit {
   aux = [];
   connectionLost: ConnectionLost;
   dependencie: Dependencie = {
-    id: 0,
+    id_dependencie: 0,
     name_dependencie: ''
   };
 
