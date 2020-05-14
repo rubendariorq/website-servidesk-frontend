@@ -96,7 +96,7 @@ export class UserListComponent implements OnInit {
   getUsersForDependencie(dependencie: string) {
     this.selectStatus = "";
     this.selectTypeUser = "";
-    
+
     if (dependencie != "") {
       Swal.fire({
         title: 'Espere un momento',
@@ -228,4 +228,50 @@ export class UserListComponent implements OnInit {
     }
   }
 
+  deleteUser(id: number): void {
+    Swal.fire({
+      icon: 'warning',
+      title: '¿Desea eliminar el usuario?',
+      text: 'Si elimina el usuario no podra recuperarlo más adelante',
+      showCancelButton: true,
+      confirmButtonColor: '#00aa99',
+      cancelButtonColor: '#ED213A',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire({
+          title: 'Espere un momento',
+          text: 'Estamos realizando la consulta',
+          timerProgressBar: true,
+          onBeforeOpen: () => {
+            Swal.showLoading()
+          }
+        });
+        this.userService.deleteUser(id).subscribe(
+          res => {
+            console.log(res);
+
+            this.connectionLost = res;
+            document.querySelector('div[class="swal2-container swal2-center swal2-backdrop-show"]').remove();
+            if (this.connectionLost.code == 'ETIMEDOUT') {
+              console.log('Conexión perdida. Reconectando...');
+              this.deleteUser(id);
+            } else {
+              Swal.fire({
+                icon: 'success',
+                title: 'Hecho',
+                text: 'El usuario se ha borrado con éxito',
+                confirmButtonColor: '#00aa99'
+              }).then(result => {
+                if (result.value) {
+                  this.getUsers();
+                }
+              });
+            }
+          },
+          err => console.error(err)
+        );
+      }
+    });
+  }
 }

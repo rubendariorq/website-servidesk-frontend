@@ -49,7 +49,7 @@
                             <td width="15%">{{user.type_user}}</td>
                             <td width="15%">
                                 <a [routerLink] = "['/users/edit/', user.id_user]" class="btnAction edit"><i class="fas fa-edit"></i></a>
-                                <button class="btnAction delete"><i class="fas fa-trash"></i></button>
+                                <button class="btnAction delete" (click) = "deleteUser(user.id_user)"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
                     </tbody>
