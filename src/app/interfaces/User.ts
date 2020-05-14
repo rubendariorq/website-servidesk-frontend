@@ -8,7 +8,7 @@ export interface User{
     type_user: string,
     status: string,
     failde_attempts: number,
-    dependencies_id: number,
+    dependencies_id_dependencie: number,
     id_dependencie: number,
     name_dependencie: string
 }

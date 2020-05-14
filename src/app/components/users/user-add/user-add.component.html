@@ -16,7 +16,7 @@
                     <label>Primer apellido:</label>
                     <input type="text" name="user.last_name" [(ngModel)] = "user.last_name">
                 </div>
-                <div class="group-input">
+                <div class="group-input" *ngIf = "edit == false">
                     <label>Contraseña:</label>
                     <input type="password" name="user.password" [(ngModel)] = "user.password" disabled>
                     <button class="btn-secundary" (click) = "generatePassword()">Generar contraseña</button>
@@ -31,13 +31,13 @@
                 </div>
                 <div class="group-input">
                     <label>Dependencia:</label>
-                    <select name="user.dependencies_id" [(ngModel)] = "user.dependencies_id">
+                    <select name="user.dependencies_id_dependencie" [(ngModel)] = "user.dependencies_id_dependencie">
                         <option value="0" selected>Seleccione una dependencia</option>
                         <option value="{{dependencie.id_dependencie}}" *ngFor = "let dependencie of dependencies">{{dependencie.name_dependencie}}</option>
                     </select>
                 </div>
                 <div class="group-buttons">
-                    <button class="btn-primary btn-blue" (click) = "addUser()">Crear</button>
+                    <button class="btn-primary btn-blue" (click) = "edit ? updateUser() : addUser()">Guardar</button>
                     <a routerLink="/users" class="btn-primary btn-red">Cancelar</a>
                 </div>
             </form>

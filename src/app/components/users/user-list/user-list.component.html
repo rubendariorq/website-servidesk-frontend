@@ -48,7 +48,7 @@
                             <td width="10%">{{user.status}}</td>
                             <td width="15%">{{user.type_user}}</td>
                             <td width="15%">
-                                <a class="btnAction edit"><i class="fas fa-edit"></i></a>
+                                <a [routerLink] = "['/users/edit/', user.id_user]" class="btnAction edit"><i class="fas fa-edit"></i></a>
                                 <button class="btnAction delete"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>

@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  API_URI = 'http://localhost:3000/api';
+  private API_URI = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) { }
 
@@ -34,7 +34,15 @@ export class UserService {
     return this.http.get(`${this.API_URI}/users/filter/email/${email}`);
   }
 
+  getUserForId(id:number): Observable<any>{
+    return this.http.get(`${this.API_URI}/users/${id}`);
+  }
+
   addUser(user:User): Observable<any>{
     return this.http.post(`${this.API_URI}/users`, user);
+  }
+
+  updateUser(id:number, user:User): Observable<any>{
+    return this.http.put(`${this.API_URI}/users/${id}`, user);
   }
 }
