@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header">
                 <div>
-                    <a routerLink="/users/add" class="btn-rad btn-blue btn-secundary">Agregar usuario</a>
+                    <a routerLink="/users/add" class="btn-rad btn-blue btn-secundary">Registrar usuario</a>
                 </div>
                 <div class="filters">
                     <label>Filtros</label>
@@ -41,13 +41,13 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let user of users; let i = index">
-                            <td width="5%">{{i+1}}</td>
-                            <td width="15%">{{user.first_name}}</td>
-                            <td width="15%">{{user.last_name}}</td>
-                            <td width="25%">{{user.name_dependencie}}</td>
-                            <td width="10%">{{user.status}}</td>
-                            <td width="15%">{{user.type_user}}</td>
-                            <td width="15%">
+                            <td>{{i+1}}</td>
+                            <td>{{user.first_name}}</td>
+                            <td>{{user.last_name}}</td>
+                            <td>{{user.name_dependencie}}</td>
+                            <td>{{user.status}}</td>
+                            <td>{{user.type_user}}</td>
+                            <td>
                                 <a [routerLink] = "['/users/edit/', user.id_user]" class="btnAction edit"><i class="fas fa-edit"></i></a>
                                 <button class="btnAction delete" (click) = "deleteUser(user.id_user)"><i class="fas fa-trash"></i></button>
                             </td>
