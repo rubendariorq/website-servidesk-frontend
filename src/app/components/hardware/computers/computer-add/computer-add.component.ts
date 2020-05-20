@@ -29,6 +29,7 @@ export class ComputerAddComponent implements OnInit {
     buy_date: "",
     provider: "",
     model: "",
+    type_hardware: "",
     type_computer: "",
     processor: "",
     speed_processor: "",
@@ -74,6 +75,7 @@ export class ComputerAddComponent implements OnInit {
     } else {
       this.computer.hardware_inventory_plate = this.computer.inventory_plate;
       this.computer.status = "Actualizado";
+      this.computer.type_hardware = "Computador";
 
       Swal.fire({
         title: 'Espere un momento',
@@ -103,7 +105,7 @@ export class ComputerAddComponent implements OnInit {
               }else{
                 Swal.fire({
                   title: 'Hecho',
-                  text: 'La dependencia se creó con exito',
+                  text: 'El computador se registró con exito',
                   icon: 'success',
                   confirmButtonColor: '#00aa99'
                 }).then((result) => {

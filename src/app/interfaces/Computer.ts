@@ -9,6 +9,7 @@ export interface Computer{
     buy_date: string,
     provider: string,
     model: string,
+    type_hardware: string,
     type_computer: string,
     processor: string,
     speed_processor: string,
