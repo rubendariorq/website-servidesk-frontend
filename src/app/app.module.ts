@@ -14,11 +14,14 @@ import { LogoutBarComponent } from './components/logout-bar/logout-bar.component
 import { DependenciesAddComponent } from './components/dependencies-add/dependencies-add.component';
 import { DependenciesEditComponent } from './components/dependencies-edit/dependencies-edit.component';
 import { UserListComponent } from './components/users/user-list/user-list.component';
+import { UserAddComponent } from './components/users/user-add/user-add.component';
+import { HardwareListComponent } from './components/hardware/hardware-list/hardware-list.component';
+import { ComputerAddComponent } from './components/hardware/computers/computer-add/computer-add.component';
 
 //Services
 import { DependenciesService } from './services/dependencies.service';
 import { UserService } from "./services/user/user.service";
-import { UserAddComponent } from './components/users/user-add/user-add.component';
+import { HardwareService } from "./services/hardware/hardware.service";
 
 @NgModule({
   declarations: [
@@ -32,6 +35,8 @@ import { UserAddComponent } from './components/users/user-add/user-add.component
     DependenciesEditComponent,
     UserListComponent,
     UserAddComponent,
+    HardwareListComponent,
+    ComputerAddComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,8 @@ import { UserAddComponent } from './components/users/user-add/user-add.component
   ],
   providers: [
     DependenciesService,
-    UserService
+    UserService,
+    HardwareService
   ],
   bootstrap: [AppComponent]
 })

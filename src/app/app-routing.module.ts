@@ -8,6 +8,8 @@ import { DependenciesAddComponent } from './components/dependencies-add/dependen
 import { DependenciesEditComponent } from './components/dependencies-edit/dependencies-edit.component';
 import { UserListComponent } from "./components/users/user-list/user-list.component";
 import { UserAddComponent } from "./components/users/user-add/user-add.component";
+import { HardwareListComponent } from "./components/hardware/hardware-list/hardware-list.component";
+import { ComputerAddComponent } from "./components/hardware/computers/computer-add/computer-add.component";
 
 const routes: Routes = [
   {
@@ -46,6 +48,14 @@ const routes: Routes = [
   {
     path: 'users/edit/:id',
     component: UserAddComponent
+  },
+  {
+    path: 'hardware',
+    component: HardwareListComponent
+  },
+  {
+    path: 'hardware/computers/add',
+    component: ComputerAddComponent
   }
 ];
 
