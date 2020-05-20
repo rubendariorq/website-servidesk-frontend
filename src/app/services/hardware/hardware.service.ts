@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 //Interfaces
 import { Computer } from "../../interfaces/Computer";
+import { Ups } from "../../interfaces/Ups";
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,10 @@ export class HardwareService {
 
   createDependencie(computer: Computer): Observable<any> {
     return this.http.post(`${this.API_URI}/hardware/computers`, computer);
+  }
+
+  createUps(ups: Ups): Observable<any> {
+    return this.http.post(`${this.API_URI}/hardware/ups`, ups);
   }
   
 }

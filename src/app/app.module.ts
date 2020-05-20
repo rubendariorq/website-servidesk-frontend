@@ -22,6 +22,7 @@ import { ComputerAddComponent } from './components/hardware/computers/computer-a
 import { DependenciesService } from './services/dependencies.service';
 import { UserService } from "./services/user/user.service";
 import { HardwareService } from "./services/hardware/hardware.service";
+import { UpsAddComponent } from './components/hardware/ups/ups-add/ups-add.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { HardwareService } from "./services/hardware/hardware.service";
     UserAddComponent,
     HardwareListComponent,
     ComputerAddComponent,
+    UpsAddComponent,
   ],
   imports: [
     BrowserModule,

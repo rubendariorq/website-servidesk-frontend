@@ -1,0 +1,68 @@
+<app-menu></app-menu>
+<div class="main-container">
+    <app-logout-bar [title]=title></app-logout-bar>
+    <div class="content">
+        <div class="card">
+            <form>
+                <div class="form-section">
+                    <div class="fs-title">Datos de compra</div>
+                    <div class="fs-fields">
+                        <div class="fs-content">
+                            <div class="group-input">
+                                <label>Fecha de compra: <span>*</span></label>
+                                <input type="date" name="ups.buy_date" [(ngModel)] = "ups.buy_date">
+                            </div>
+                            <div class="group-input">
+                                <label>Duración de la garantia (en meses): <span>*</span></label>
+                                <input type="number" name="ups.months_warranty" [(ngModel)] = "ups.months_warranty">
+                            </div>
+                        </div>
+                        <div class="fs-content">
+                            <div class="group-input">
+                                <label>Costo:</label>
+                                <input type="number" name="ups.cost" [(ngModel)] = "ups.cost">
+                            </div>
+                            <div class="group-input">
+                                <label>Proveedor:</label>
+                                <input type="text" name="ups.provider" [(ngModel)] = "ups.provider">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <div class="fs-title">Configuración actual del hardware</div>
+                    <div class="fs-fields">
+                        <div class="fs-content">
+                            <div class="group-input">
+                                <label>Placa de inventario: <span>*</span></label>
+                                <input type="text" name="ups.inventory_plate" [(ngModel)] = "ups.inventory_plate">
+                            </div>
+                            <div class="group-input">
+                                <label>Marca: <span>*</span></label>
+                                <input type="text" name="ups.brand" [(ngModel)] = "ups.brand">
+                            </div>
+                            <div class="group-input">
+                                <label>Capacidad: <span>*</span></label>
+                                <input type="text" name="ups.capacity" [(ngModel)] = "ups.capacity">
+                            </div>
+                        </div>
+                        <div class="fs-content">
+                            <div class="group-input">
+                                <label>Serial: <span>*</span></label>
+                                <input type="text" name="ups.serial" [(ngModel)] = "ups.serial">
+                            </div>
+                            <div class="group-input">
+                                <label>Modelo: <span>*</span></label>
+                                <input type="text" name="ups.model" [(ngModel)] = "ups.model">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-buttons action">
+                    <button class="btn-primary btn-blue" (click) = "createUps()">Guardar</button>
+                    <a routerLink="/hardware" class="btn-primary btn-red">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

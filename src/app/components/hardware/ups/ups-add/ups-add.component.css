@@ -1,0 +1,134 @@
+a{
+    text-decoration: none;
+}
+
+.action{
+    clear: both;
+}
+
+.btn-primary{
+    padding: 5px 10px;
+    background-color: #00aa99;
+    border-radius: 5px;
+    border: 1px solid;
+    color: #FFFFFF;
+}
+
+.btn-secundary{
+    padding: 2px 5px;
+    background-color: #00aa99;
+    border-radius: 5px;
+    border: 1px solid;
+    color: #FFFFFF;
+}
+
+.btn-red{
+    background-color: #e93632;
+    border-color: #c72825;
+    color: #FFF;
+}
+
+.btn-blue{
+    background-color: #00aa99;
+    border-color: rgb(0, 170, 153);
+    color: #FFF;
+}
+
+.card{
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.card form{
+    padding: 20px;
+}
+
+.content{
+    width: 700px;
+    margin: 50px auto;
+    color: #17252A;
+    font-size: 0.8em;
+}
+
+.form-section{
+    padding: 10px;
+    color: #979595;
+    clear: both;
+}
+
+.fs-title{
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e8dbdb;
+}
+
+.fs-fields{
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.fs-content{
+    float: left;
+    width: 45%;
+    padding: 10px;
+}
+
+.fs-content span{
+    color: #c72825;
+    font-size: 1.2em;
+}
+
+.group-input, .group-buttons{
+    margin-bottom: 10px;
+}
+
+.group-input input, .group-input select, .group-input textarea{
+    padding: 8px;
+    margin-top: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #acacac;
+    border-radius: 5px;
+}
+
+select{
+    color: #201111;
+}
+
+.group-input label{
+    color: #979595;
+}
+
+.group-buttons{
+    text-align: right;
+    font-size: 1em;
+    margin-top: 20px;
+}
+
+.group-buttons button{
+    margin-right: 5px;
+}
+
+.main-container{
+    margin-left: 225px;
+}
+
+@media screen and (min-width: 1400px){
+    .main-container{
+        margin-left: 250px;
+    }
+
+    .content{
+        font-size: 1em;
+    }
+
+    .group-buttons button{
+        font-size: 1em;
+    }
+
+    .group-input input{
+        padding: 10px;
+    }
+}
