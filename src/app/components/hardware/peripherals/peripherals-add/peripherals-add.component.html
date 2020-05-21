@@ -1,0 +1,72 @@
+<app-menu></app-menu>
+<div class="main-container">
+    <app-logout-bar [title]=title></app-logout-bar>
+    <div class="content">
+        <div class="card">
+            <form>
+                <div class="form-section">
+                    <div class="fs-title">Datos de compra</div>
+                    <div class="fs-fields">
+                        <div class="fs-content">
+                            <div class="group-input">
+                                <label>Fecha de compra: <span>*</span></label>
+                                <input type="date" name="peripheral.buy_date" [(ngModel)] = "peripheral.buy_date">
+                            </div>
+                            <div class="group-input">
+                                <label>Duración de la garantia (en meses): <span>*</span></label>
+                                <input type="number" name="peripheral.months_warranty" [(ngModel)] = "peripheral.months_warranty">
+                            </div>
+                        </div>
+                        <div class="fs-content">
+                            <div class="group-input">
+                                <label>Costo:</label>
+                                <input type="number" name="peripheral.cost" [(ngModel)] = "peripheral.cost">
+                            </div>
+                            <div class="group-input">
+                                <label>Proveedor:</label>
+                                <input type="text" name="peripheral.provider" [(ngModel)] = "peripheral.provider">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <div class="fs-title">Configuración actual del hardware</div>
+                    <div class="fs-fields">
+                        <div class="fs-content">
+                            <div class="group-input">
+                                <label>Placa de inventario: <span>*</span></label>
+                                <input type="text" name="peripheral.inventory_plate" [(ngModel)] = "peripheral.inventory_plate">
+                            </div>
+                            <div class="group-input">
+                                <label>Marca: <span>*</span></label>
+                                <input type="text" name="peripheral.brand" [(ngModel)] = "peripheral.brand">
+                            </div>
+                            <div class="group-input">
+                                <label>Tipo de periférico: <span>*</span></label>
+                                <select name="peripheral.type_peripheral" [(ngModel)] = "peripheral.type_peripheral">
+                                    <option value="">Seleccione</option>
+                                    <option value="Impresora">Impresora</option>
+                                    <option value="Escaner">Escaner</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="fs-content">
+                            <div class="group-input">
+                                <label>Serial: <span>*</span></label>
+                                <input type="text" name="peripheral.serial" [(ngModel)] = "peripheral.serial">
+                            </div>
+                            <div class="group-input">
+                                <label>Modelo: <span>*</span></label>
+                                <input type="text" name="peripheral.model" [(ngModel)] = "peripheral.model">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-buttons action">
+                    <button class="btn-primary btn-blue" (click) = "createPeripheral()">Guardar</button>
+                    <a routerLink="/hardware" class="btn-primary btn-red">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

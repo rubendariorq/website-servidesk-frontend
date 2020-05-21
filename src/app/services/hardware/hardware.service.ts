@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 //Interfaces
 import { Computer } from "../../interfaces/Computer";
 import { Ups } from "../../interfaces/Ups";
+import { Peripheral } from 'src/app/interfaces/Peripheral';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,10 @@ export class HardwareService {
 
   createUps(ups: Ups): Observable<any> {
     return this.http.post(`${this.API_URI}/hardware/ups`, ups);
+  }
+
+  createPeripheral(peripheral: Peripheral): Observable<any> {
+    return this.http.post(`${this.API_URI}/hardware/peripherals`, peripheral);
   }
   
 }

@@ -23,6 +23,7 @@ import { DependenciesService } from './services/dependencies.service';
 import { UserService } from "./services/user/user.service";
 import { HardwareService } from "./services/hardware/hardware.service";
 import { UpsAddComponent } from './components/hardware/ups/ups-add/ups-add.component';
+import { PeripheralsAddComponent } from './components/hardware/peripherals/peripherals-add/peripherals-add.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { UpsAddComponent } from './components/hardware/ups/ups-add/ups-add.compo
     HardwareListComponent,
     ComputerAddComponent,
     UpsAddComponent,
+    PeripheralsAddComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { UserAddComponent } from "./components/users/user-add/user-add.component
 import { HardwareListComponent } from "./components/hardware/hardware-list/hardware-list.component";
 import { ComputerAddComponent } from "./components/hardware/computers/computer-add/computer-add.component";
 import { UpsAddComponent } from "./components/hardware/ups/ups-add/ups-add.component";
+import { PeripheralsAddComponent } from "./components/hardware/peripherals/peripherals-add/peripherals-add.component";
 
 const routes: Routes = [
   {
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path: 'hardware/ups/add',
     component: UpsAddComponent
+  },
+  {
+    path: 'hardware/peripherals/add',
+    component: PeripheralsAddComponent
   }
 ];
 
