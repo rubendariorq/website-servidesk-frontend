@@ -27,5 +27,9 @@ export class HardwareService {
   createPeripheral(peripheral: Peripheral): Observable<any> {
     return this.http.post(`${this.API_URI}/hardware/peripherals`, peripheral);
   }
+
+  getAllHardware(): Observable<any> {
+    return this.http.get(`${this.API_URI}/hardware`);
+  }
   
 }

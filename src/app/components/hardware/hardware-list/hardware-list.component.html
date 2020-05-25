@@ -1,0 +1,59 @@
+<app-menu></app-menu>
+<div class="main-container">
+    <app-logout-bar [title]=title></app-logout-bar>
+    <div class="content">
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <a routerLink="/hardware/computers/add" class="btn-rad btn-blue btn-secundary">Registrar computador</a>
+                    <a routerLink="/hardware/ups/add" class="btn-rad btn-blue btn-secundary">Registrar ups</a>
+                    <a routerLink="/hardware/peripherals/add" class="btn-rad btn-blue btn-secundary">Registrar periférico</a>
+                </div>
+                <div class="filters">
+                    <label>Filtros</label>
+                    <select name="selectTypeHardware">
+                        <option value="" selected>Cualquier hardware</option>
+                        <option value="computador">Computador</option>
+                        <option value="ups">Ups</option>
+                        <option value="periferico">Periférico</option>
+                    </select>
+                    <select name="selectDependencie" [(ngModel)]="selectDependencie">
+                        <option value="" selected>Cualquier dependencia</option>
+                        <option value="{{dependencie.name_dependencie}}" *ngFor="let dependencie of dependencies">
+                            {{dependencie.name_dependencie}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="5%">No.</th>
+                            <th width="15%">Marca</th>
+                            <th width="15%">Modelo</th>
+                            <th width="15%">Serial</th>
+                            <th width="15%">Tipo de Hardware</th>
+                            <th width="20%">Dependencia</th>
+                            <th width="15%">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let hardw of hardware; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{hardw.brand}}</td>
+                            <td>{{hardw.model}}</td>
+                            <td>{{hardw.serial}}</td>
+                            <td>{{hardw.type_hardware}}</td>
+                            <td>{{hardw.name_dependencie}}</td>
+                            <td>
+                                <a class="btnAction view"><i class="fas fa-eye"></i></a>
+                                <a class="btnAction edit"><i class="fas fa-edit"></i></a>
+                                <button class="btnAction delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
