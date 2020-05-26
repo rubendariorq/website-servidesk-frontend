@@ -11,13 +11,13 @@
                 </div>
                 <div class="filters">
                     <label>Filtros</label>
-                    <select name="selectTypeHardware">
+                    <select name="selectTypeHardware" [(ngModel)]="selectTypeHardware" (change)="getHardwareForType($event.target.value)">
                         <option value="" selected>Cualquier hardware</option>
-                        <option value="computador">Computador</option>
-                        <option value="ups">Ups</option>
-                        <option value="periferico">Periférico</option>
+                        <option value="Computador">Computador</option>
+                        <option value="Ups">Ups</option>
+                        <option value="Periferico">Periférico</option>
                     </select>
-                    <select name="selectDependencie" [(ngModel)]="selectDependencie">
+                    <select name="selectDependencie" [(ngModel)]="selectDependencie" (change)="getHardwareForDependencie($event.target.value)">
                         <option value="" selected>Cualquier dependencia</option>
                         <option value="{{dependencie.name_dependencie}}" *ngFor="let dependencie of dependencies">
                             {{dependencie.name_dependencie}}</option>

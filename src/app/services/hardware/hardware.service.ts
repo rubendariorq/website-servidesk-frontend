@@ -31,5 +31,13 @@ export class HardwareService {
   getAllHardware(): Observable<any> {
     return this.http.get(`${this.API_URI}/hardware`);
   }
+
+  getHardwareForDependencie(dependencie:String): Observable<any>{
+    return this.http.get(`${this.API_URI}/hardware/filter/dependencie/${dependencie}`);
+  }
+
+  getHardwareForType(typeHardware:String): Observable<any>{
+    return this.http.get(`${this.API_URI}/hardware/filter/type/${typeHardware}`);
+  }
   
 }

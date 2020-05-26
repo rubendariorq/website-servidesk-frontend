@@ -21,6 +21,7 @@ export class HardwareListComponent implements OnInit {
   hardware: any = [];
   dependencies: any = [];
   selectDependencie = "";
+  selectTypeHardware = "";
 
   constructor(private hardwareService: HardwareService, private router:Router, private dependenciesService: DependenciesService) { }
 
@@ -88,6 +89,94 @@ export class HardwareListComponent implements OnInit {
         },
         err => console.error(err)
       );
+  }
+
+  getHardwareForDependencie(dependencie: string){
+    this.selectTypeHardware = "";
+
+    if (dependencie != "") {
+      Swal.fire({
+        title: 'Espere un momento',
+        text: 'Estamos realizando la consulta',
+        timerProgressBar: true,
+        onBeforeOpen: () => {
+          Swal.showLoading()
+        }
+      });
+      this.hardwareService.getHardwareForDependencie(dependencie)
+        .subscribe(
+          res => {
+            console.log(res);
+            document.querySelector('div[class="swal2-container swal2-center swal2-backdrop-show"]').remove();
+
+            this.connectionLost = res;
+            if (this.connectionLost.code == 'ETIMEDOUT') {
+              console.log('Conexión perdida. Reconectando...');
+              this.getHardwareForDependencie(dependencie);
+            } else {
+              if (res[0] == undefined) {
+                Swal.fire({
+                  icon: 'warning',
+                  title: 'Aviso',
+                  text: 'No hay hardware registrado',
+                  confirmButtonColor: '00aa99'
+                })
+                this.hardware = [];
+              } else {
+                this.hardware = [];
+                this.hardware = res;
+              }
+            }
+          },
+          err => console.error(err)
+        );
+    } else {
+      this.getAllHardware();
+    }
+  }
+
+  getHardwareForType(typeHardware: string){
+    this.selectDependencie = "";
+
+    if (typeHardware != "") {
+      Swal.fire({
+        title: 'Espere un momento',
+        text: 'Estamos realizando la consulta',
+        timerProgressBar: true,
+        onBeforeOpen: () => {
+          Swal.showLoading()
+        }
+      });
+      this.hardwareService.getHardwareForType(typeHardware)
+        .subscribe(
+          res => {
+            console.log(res);
+            document.querySelector('div[class="swal2-container swal2-center swal2-backdrop-show"]').remove();
+
+            this.connectionLost = res;
+            if (this.connectionLost.code == 'ETIMEDOUT') {
+              console.log('Conexión perdida. Reconectando...');
+              this.getHardwareForType(typeHardware);
+            } else {
+              if (res[0] == undefined) {
+                Swal.fire({
+                  icon: 'warning',
+                  title: 'Aviso',
+                  text: 'No hay hardware registrado',
+                  confirmButtonColor: '00aa99'
+                })
+                this.hardware = [];
+              } else {
+                this.hardware = [];
+                this.hardware = res;
+              }
+            }
+          },
+          err => console.error(err)
+        );
+    } else {
+      this.getAllHardware();
+    }
   }
 
 }

@@ -49,7 +49,7 @@ export class PeripheralsAddComponent implements OnInit {
     } else {
       this.peripheral.hardware_inventory_plate = this.peripheral.inventory_plate;
       this.peripheral.status = "Actualizado";
-      this.peripheral.type_hardware = "Peripheral";
+      this.peripheral.type_hardware = "Periferico";
 
       Swal.fire({
         title: 'Espere un momento',
