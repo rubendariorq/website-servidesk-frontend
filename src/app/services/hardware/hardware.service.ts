@@ -47,5 +47,13 @@ export class HardwareService {
   uptadeComputer(id:string, computer:Computer): Observable<any>{
     return this.http.put(`${this.API_URI}/hardware/computers/${id}`, computer);
   }
+
+  getUps(inventoryPlate:String): Observable<any>{
+    return this.http.get(`${this.API_URI}/hardware/ups/${inventoryPlate}`);
+  }
+
+  uptadeUps(id:string, ups:Ups): Observable<any>{
+    return this.http.put(`${this.API_URI}/hardware/ups/${id}`, ups);
+  }
   
 }
