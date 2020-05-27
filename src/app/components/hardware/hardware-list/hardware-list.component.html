@@ -47,7 +47,7 @@
                             <td>{{hardw.name_dependencie}}</td>
                             <td>
                                 <a class="btnAction view"><i class="fas fa-eye"></i></a>
-                                <a class="btnAction edit"><i class="fas fa-edit"></i></a>
+                                <a (click) = "redirectEdit(hardw.inventory_plate, hardw.type_hardware)" class="btnAction edit"><i class="fas fa-edit"></i></a>
                                 <button class="btnAction delete"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>

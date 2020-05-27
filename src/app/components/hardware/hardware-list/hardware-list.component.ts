@@ -23,7 +23,7 @@ export class HardwareListComponent implements OnInit {
   selectDependencie = "";
   selectTypeHardware = "";
 
-  constructor(private hardwareService: HardwareService, private router:Router, private dependenciesService: DependenciesService) { }
+  constructor(private hardwareService: HardwareService, private router: Router, private dependenciesService: DependenciesService) { }
 
   ngOnInit() {
     this.getAllHardware();
@@ -91,7 +91,7 @@ export class HardwareListComponent implements OnInit {
       );
   }
 
-  getHardwareForDependencie(dependencie: string){
+  getHardwareForDependencie(dependencie: string) {
     this.selectTypeHardware = "";
 
     if (dependencie != "") {
@@ -135,7 +135,7 @@ export class HardwareListComponent implements OnInit {
     }
   }
 
-  getHardwareForType(typeHardware: string){
+  getHardwareForType(typeHardware: string) {
     this.selectDependencie = "";
 
     if (typeHardware != "") {
@@ -176,6 +176,18 @@ export class HardwareListComponent implements OnInit {
         );
     } else {
       this.getAllHardware();
+    }
+  }
+
+  redirectEdit(inventory_plate: string, type_hardware: string): void {
+    if (type_hardware == "Computador") {
+      this.router.navigate([`/hardware/computer/edit/${inventory_plate}`]);
+    } else {
+      if (type_hardware == "Ups") {
+        this.router.navigate([`/hardware/ups/edit/${inventory_plate}`]);
+      } else {
+        this.router.navigate([`/hardware/peripheral/edit/${inventory_plate}`]);
+      }
     }
   }
 

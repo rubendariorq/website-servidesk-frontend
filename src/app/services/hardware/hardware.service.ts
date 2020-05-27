@@ -39,5 +39,13 @@ export class HardwareService {
   getHardwareForType(typeHardware:String): Observable<any>{
     return this.http.get(`${this.API_URI}/hardware/filter/type/${typeHardware}`);
   }
+
+  getComputer(inventoryPlate:String): Observable<any>{
+    return this.http.get(`${this.API_URI}/hardware/computers/${inventoryPlate}`);
+  }
+
+  uptadeComputer(id:string, computer:Computer): Observable<any>{
+    return this.http.put(`${this.API_URI}/hardware/computers/${id}`, computer);
+  }
   
 }

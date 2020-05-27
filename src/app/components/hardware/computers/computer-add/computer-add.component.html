@@ -184,7 +184,7 @@
                     </div>
                 </div>
                 <div class="group-buttons action">
-                    <button class="btn-primary btn-blue" (click) = "createComputer()">Guardar</button>
+                    <button class="btn-primary btn-blue" (click) = "edit ? editComputer() : createComputer()">Guardar</button>
                     <a routerLink="/hardware" class="btn-primary btn-red">Cancelar</a>
                 </div>
             </form>
