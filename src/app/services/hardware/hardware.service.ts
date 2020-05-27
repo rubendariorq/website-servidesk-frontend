@@ -55,5 +55,13 @@ export class HardwareService {
   uptadeUps(id:string, ups:Ups): Observable<any>{
     return this.http.put(`${this.API_URI}/hardware/ups/${id}`, ups);
   }
+
+  getPeripheral(inventoryPlate:String): Observable<any>{
+    return this.http.get(`${this.API_URI}/hardware/peripherals/${inventoryPlate}`);
+  }
+
+  uptadePeripheral(id:string, peripheral:Peripheral): Observable<any>{
+    return this.http.put(`${this.API_URI}/hardware/peripherals/${id}`, peripheral);
+  }
   
 }
