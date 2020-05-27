@@ -63,5 +63,9 @@ export class HardwareService {
   uptadePeripheral(id:string, peripheral:Peripheral): Observable<any>{
     return this.http.put(`${this.API_URI}/hardware/peripherals/${id}`, peripheral);
   }
+
+  deleteHardware(id:string): Observable<any>{
+    return this.http.delete(`${this.API_URI}/hardware/${id}`);
+  }
   
 }
