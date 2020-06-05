@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Computer } from "../../interfaces/Computer";
 import { Ups } from "../../interfaces/Ups";
 import { Peripheral } from 'src/app/interfaces/Peripheral';
+import { HardwareUbications } from "../../interfaces/HardwareUbications";
 
 @Injectable({
   providedIn: 'root'
@@ -32,8 +33,8 @@ export class HardwareService {
     return this.http.get(`${this.API_URI}/hardware`);
   }
 
-  getHardwareForDependencie(dependencie:String): Observable<any>{
-    return this.http.get(`${this.API_URI}/hardware/filter/dependencie/${dependencie}`);
+  getHardwareForAllocationStatus(allocationStatus:String): Observable<any>{
+    return this.http.get(`${this.API_URI}/hardware/filter/dependencie/${allocationStatus}`);
   }
 
   getHardwareForType(typeHardware:String): Observable<any>{
@@ -67,5 +68,12 @@ export class HardwareService {
   deleteHardware(id:string): Observable<any>{
     return this.http.delete(`${this.API_URI}/hardware/${id}`);
   }
-  
+
+  getUbicationHardware(id:string): Observable<any>{
+    return this.http.get(`${this.API_URI}/hardware/${id}`);
+  }
+
+  addUbicationHardware(hardwareUbications: HardwareUbications): Observable<any>{
+    return this.http.post(`${this.API_URI}/hardware/addUbication`, hardwareUbications);
+  }
 }

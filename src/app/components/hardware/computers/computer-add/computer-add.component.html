@@ -10,21 +10,24 @@
                         <div class="fs-content">
                             <div class="group-input">
                                 <label>Fecha de compra: <span>*</span></label>
-                                <input type="date" name="computer.buy_date" [(ngModel)] = "computer.buy_date">
+                                <input type="date" name="computer.buy_date" [(ngModel)]="computer.buy_date"
+                                    [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Duración de la garantia (en meses): <span>*</span></label>
-                                <input type="number" name="computer.months_warranty" [(ngModel)] = "computer.months_warranty">
+                                <input type="number" name="computer.months_warranty"
+                                    [(ngModel)]="computer.months_warranty" [disabled]="view">
                             </div>
                         </div>
                         <div class="fs-content">
                             <div class="group-input">
                                 <label>Costo:</label>
-                                <input type="number" name="computer.cost" [(ngModel)] = "computer.cost">
+                                <input type="number" name="computer.cost" [(ngModel)]="computer.cost" [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Proveedor:</label>
-                                <input type="text" name="computer.provider" [(ngModel)] = "computer.provider">
+                                <input type="text" name="computer.provider" [(ngModel)]="computer.provider"
+                                    [disabled]="view">
                             </div>
                         </div>
                     </div>
@@ -35,43 +38,66 @@
                         <div class="fs-content">
                             <div class="group-input">
                                 <label>Placa de inventario: <span>*</span></label>
-                                <input type="text" name="inventory_plate" [(ngModel)] = "computer.inventory_plate">
+                                <input type="text" name="inventory_plate" [(ngModel)]="computer.inventory_plate"
+                                    [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Serial: <span>*</span></label>
-                                <input type="text" name="computer.serial" [(ngModel)] = "computer.serial">
+                                <input type="text" name="computer.serial" [(ngModel)]="computer.serial"
+                                    [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Modelo: <span>*</span></label>
-                                <input type="text" name="computer.model" [(ngModel)] = "computer.model">
+                                <input type="text" name="computer.model" [(ngModel)]="computer.model" [disabled]="view">
                             </div>
-                            <div class="group-input">
+                            <div class="group-input group-input-duo">
                                 <label>Velocidad del procesador: <span>*</span></label>
-                                <input type="text" name="computer.speed_processor" [(ngModel)] = "computer.speed_processor">
+                                <input type="number" name="computer.speed_processor"
+                                    [(ngModel)]="computer.speed_processor" [disabled]="view">
+                                <select name="computer.processor_unit_measure"
+                                    [(ngModel)]="computer.processor_unit_measure" [disabled]="view">
+                                    <option value="GHz">GHz</option>
+                                    <option value="MHz">MHz</option>
+                                </select>
                             </div>
-                            <div class="group-input">
+                            <div class="group-input group-input-duo">
                                 <label>Tamaño del Disco duro: <span>*</span></label>
-                                <input type="text" name="computer.hard_drive" [(ngModel)] = "computer.hard_drive">
+                                <input type="number" name="computer.hard_drive" [(ngModel)]="computer.hard_drive"
+                                    [disabled]="view">
+                                <select name="computer.hard_drive_unit_measure"
+                                    [(ngModel)]="computer.hard_drive_unit_measure" [disabled]="view">
+                                    <option value="TB">TB</option>
+                                    <option value="GB">GB</option>
+                                </select>
                             </div>
-                            <div class="group-input">
+                            <div class="group-input group-input-duo">
                                 <label>Capacidad de la memoria RAM: <span>*</span></label>
-                                <input type="text" name="computer.memory" [(ngModel)] = "computer.memory">
+                                <input type="text" name="computer.memory" [(ngModel)]="computer.memory"
+                                    [disabled]="view">
+                                <select name="computer.memory_unit_measure" [(ngModel)]="computer.memory_unit_measure"
+                                    [disabled]="view">
+                                    <option value="GB">GB</option>
+                                    <option value="MB">MB</option>
+                                </select>
                             </div>
                             <div class="group-input">
                                 <label>Modelo del monitor: <span>*</span></label>
-                                <input type="text" name="computer.model_monitor" [(ngModel)] = "computer.model_monitor">
+                                <input type="text" name="computer.model_monitor" [(ngModel)]="computer.model_monitor"
+                                    [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Serial del monitor: <span>*</span></label>
-                                <input type="text" name="computer.serial_monitor" [(ngModel)] = "computer.serial_monitor">
+                                <input type="text" name="computer.serial_monitor" [(ngModel)]="computer.serial_monitor"
+                                    [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Velocidad de la tarjeta de red: <span>*</span></label>
-                                <input type="text" name="computer.speed_network_card" [(ngModel)] = "computer.speed_network_card">
+                                <input type="text" name="computer.speed_network_card"
+                                    [(ngModel)]="computer.speed_network_card" [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>CD-ROM: <span>*</span></label>
-                                <select name="computer.cd_rom" [(ngModel)] = "computer.cd_rom">
+                                <select name="computer.cd_rom" [(ngModel)]="computer.cd_rom" [disabled]="view">
                                     <option value="">Seleccione</option>
                                     <option value="si">Si</option>
                                     <option value="no">No</option>
@@ -79,7 +105,8 @@
                             </div>
                             <div class="group-input">
                                 <label>Tarjeta lectora: <span>*</span></label>
-                                <select name="computer.card_reader_driver" [(ngModel)] = "computer.card_reader_driver">
+                                <select name="computer.card_reader_driver" [(ngModel)]="computer.card_reader_driver"
+                                    [disabled]="view">
                                     <option value="">Seleccione</option>
                                     <option value="si">Si</option>
                                     <option value="no">No</option>
@@ -87,7 +114,8 @@
                             </div>
                             <div class="group-input">
                                 <label>Disco duro externo: <span>*</span></label>
-                                <select name="computer.external_hard_drive" [(ngModel)] = "computer.external_hard_drive">
+                                <select name="computer.external_hard_drive" [(ngModel)]="computer.external_hard_drive"
+                                    [disabled]="view">
                                     <option value="">Seleccione</option>
                                     <option value="si">Si</option>
                                     <option value="no">No</option>
@@ -95,7 +123,8 @@
                             </div>
                             <div class="group-input">
                                 <label>Tipo de conexión del mouse: <span>*</span></label>
-                                <select name="computer.mouse_connection" [(ngModel)] = "computer.mouse_connection">
+                                <select name="computer.mouse_connection" [(ngModel)]="computer.mouse_connection"
+                                    [disabled]="view">
                                     <option value="">Seleccione</option>
                                     <option value="si">PS2</option>
                                     <option value="no">USB</option>
@@ -105,7 +134,8 @@
                         <div class="fs-content">
                             <div class="group-input">
                                 <label>Tipo de computador: <span>*</span></label>
-                                <select name="computer.type_computer" [(ngModel)] = "computer.type_computer">
+                                <select name="computer.type_computer" [(ngModel)]="computer.type_computer"
+                                    [disabled]="view">
                                     <option value="">Seleccione un tipo</option>
                                     <option value="Portatil">Portatil</option>
                                     <option value="Escritorio">Escritorio</option>
@@ -114,35 +144,41 @@
                             </div>
                             <div class="group-input">
                                 <label>Marca: <span>*</span></label>
-                                <input type="text" name="computer.brand" [(ngModel)] = "computer.brand">
+                                <input type="text" name="computer.brand" [(ngModel)]="computer.brand" [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Tipo de procesador: <span>*</span></label>
-                                <input type="text" name="computer.processor" [(ngModel)] = "computer.processor">
+                                <input type="text" name="computer.processor" [(ngModel)]="computer.processor"
+                                    [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Tecnología del Disco duro: <span>*</span></label>
-                                <input type="text" name="computer.technology_hard_drive" [(ngModel)] = "computer.technology_hard_drive">
+                                <input type="text" name="computer.technology_hard_drive"
+                                    [(ngModel)]="computer.technology_hard_drive" [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Tipo de memoria RAM: <span>*</span></label>
-                                <input type="text" name="computer.type_memory" [(ngModel)] = "computer.type_memory">
+                                <input type="text" name="computer.type_memory" [(ngModel)]="computer.type_memory"
+                                    [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Marca del monitor: <span>*</span></label>
-                                <input type="text" name="computer.brand_monitor" [(ngModel)] = "computer.brand_monitor">
+                                <input type="text" name="computer.brand_monitor" [(ngModel)]="computer.brand_monitor"
+                                    [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Pulgadas del monitor: <span>*</span></label>
-                                <input type="number" name="computer.inch_monitor" [(ngModel)] = "computer.inch_monitor">
+                                <input type="number" name="computer.inch_monitor" [(ngModel)]="computer.inch_monitor"
+                                    [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Marca de la tarjeta de red: <span>*</span></label>
-                                <input type="text" name="computer.brand_network_card" [(ngModel)] = "computer.brand_network_card">
+                                <input type="text" name="computer.brand_network_card"
+                                    [(ngModel)]="computer.brand_network_card" [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Drive: <span>*</span></label>
-                                <select name="computer.drive" [(ngModel)] = "computer.drive">
+                                <select name="computer.drive" [(ngModel)]="computer.drive" [disabled]="view">
                                     <option value="">Seleccione</option>
                                     <option value="si">Si</option>
                                     <option value="no">No</option>
@@ -150,7 +186,7 @@
                             </div>
                             <div class="group-input">
                                 <label>DVD: <span>*</span></label>
-                                <select name="computer.dvd" [(ngModel)] = "computer.dvd">
+                                <select name="computer.dvd" [(ngModel)]="computer.dvd" [disabled]="view">
                                     <option value="">Seleccione</option>
                                     <option value="si">Si</option>
                                     <option value="no">No</option>
@@ -158,7 +194,8 @@
                             </div>
                             <div class="group-input">
                                 <label>Copia de seguridad: <span>*</span></label>
-                                <select name="computer.tape_backup" [(ngModel)] = "computer.tape_backup">
+                                <select name="computer.tape_backup" [(ngModel)]="computer.tape_backup"
+                                    [disabled]="view">
                                     <option value="">Seleccione</option>
                                     <option value="si">Si</option>
                                     <option value="no">No</option>
@@ -166,7 +203,8 @@
                             </div>
                             <div class="group-input">
                                 <label>Tipo de conexión del teclado: <span>*</span></label>
-                                <select name="computer.keyboard_connection" [(ngModel)] = "computer.keyboard_connection">
+                                <select name="computer.keyboard_connection" [(ngModel)]="computer.keyboard_connection"
+                                    [disabled]="view">
                                     <option value="">Seleccione</option>
                                     <option value="si">PS2</option>
                                     <option value="no">USB</option>
@@ -179,13 +217,21 @@
                     <div class="fs-title">Observaciones</div>
                     <div class="fs-fields">
                         <div class="group-input">
-                            <textarea name="computer.observations" [(ngModel)] = "computer.observations" cols="80" rows="10"></textarea>
+                            <textarea name="computer.observations" [(ngModel)]="computer.observations" cols="80"
+                                rows="10" [disabled]="view"></textarea>
                         </div>
                     </div>
                 </div>
+                <app-section-location-history *ngIf="view == true"></app-section-location-history>
                 <div class="group-buttons action">
-                    <button class="btn-primary btn-blue" (click) = "edit ? editComputer() : createComputer()">Guardar</button>
-                    <a routerLink="/hardware" class="btn-primary btn-red">Cancelar</a>
+                    <div *ngIf="view; else showBtnReturn">
+                        <a routerLink="/hardware" class="btn-primary btn-red">Volver</a>
+                    </div>
+                    <ng-template #showBtnReturn>
+                        <button class="btn-primary btn-blue"
+                            (click)="edit ? editComputer() : createComputer()">Guardar</button>
+                        <a routerLink="/hardware" class="btn-primary btn-red">Cancelar</a>
+                    </ng-template>
                 </div>
             </form>
         </div>

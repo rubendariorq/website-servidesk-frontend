@@ -10,21 +10,25 @@
                         <div class="fs-content">
                             <div class="group-input">
                                 <label>Fecha de compra: <span>*</span></label>
-                                <input type="date" name="peripheral.buy_date" [(ngModel)] = "peripheral.buy_date">
+                                <input type="date" name="peripheral.buy_date" [(ngModel)]="peripheral.buy_date"
+                                    [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Duración de la garantia (en meses): <span>*</span></label>
-                                <input type="number" name="peripheral.months_warranty" [(ngModel)] = "peripheral.months_warranty">
+                                <input type="number" name="peripheral.months_warranty"
+                                    [(ngModel)]="peripheral.months_warranty" [disabled]="view">
                             </div>
                         </div>
                         <div class="fs-content">
                             <div class="group-input">
                                 <label>Costo:</label>
-                                <input type="number" name="peripheral.cost" [(ngModel)] = "peripheral.cost">
+                                <input type="number" name="peripheral.cost" [(ngModel)]="peripheral.cost"
+                                    [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Proveedor:</label>
-                                <input type="text" name="peripheral.provider" [(ngModel)] = "peripheral.provider">
+                                <input type="text" name="peripheral.provider" [(ngModel)]="peripheral.provider"
+                                    [disabled]="view">
                             </div>
                         </div>
                     </div>
@@ -35,15 +39,18 @@
                         <div class="fs-content">
                             <div class="group-input">
                                 <label>Placa de inventario: <span>*</span></label>
-                                <input type="text" name="peripheral.inventory_plate" [(ngModel)] = "peripheral.inventory_plate">
+                                <input type="text" name="peripheral.inventory_plate"
+                                    [(ngModel)]="peripheral.inventory_plate" [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Marca: <span>*</span></label>
-                                <input type="text" name="peripheral.brand" [(ngModel)] = "peripheral.brand">
+                                <input type="text" name="peripheral.brand" [(ngModel)]="peripheral.brand"
+                                    [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Tipo de periférico: <span>*</span></label>
-                                <select name="peripheral.type_peripheral" [(ngModel)] = "peripheral.type_peripheral">
+                                <select name="peripheral.type_peripheral" [(ngModel)]="peripheral.type_peripheral"
+                                    [disabled]="view">
                                     <option value="">Seleccione</option>
                                     <option value="Impresora">Impresora</option>
                                     <option value="Escaner">Escaner</option>
@@ -53,18 +60,27 @@
                         <div class="fs-content">
                             <div class="group-input">
                                 <label>Serial: <span>*</span></label>
-                                <input type="text" name="peripheral.serial" [(ngModel)] = "peripheral.serial">
+                                <input type="text" name="peripheral.serial" [(ngModel)]="peripheral.serial"
+                                    [disabled]="view">
                             </div>
                             <div class="group-input">
                                 <label>Modelo: <span>*</span></label>
-                                <input type="text" name="peripheral.model" [(ngModel)] = "peripheral.model">
+                                <input type="text" name="peripheral.model" [(ngModel)]="peripheral.model"
+                                    [disabled]="view">
                             </div>
                         </div>
                     </div>
                 </div>
+                <app-section-location-history *ngIf="view == true"></app-section-location-history>
                 <div class="group-buttons action">
-                    <button class="btn-primary btn-blue" (click) = "edit ? updatePeripheral() : createPeripheral()">Guardar</button>
-                    <a routerLink="/hardware" class="btn-primary btn-red">Cancelar</a>
+                    <div *ngIf="view; else showBtnReturn">
+                        <a routerLink="/hardware" class="btn-primary btn-red">Volver</a>
+                    </div>
+                    <ng-template #showBtnReturn>
+                        <button class="btn-primary btn-blue"
+                            (click)="edit ? updatePeripheral() : createPeripheral()">Guardar</button>
+                        <a routerLink="/hardware" class="btn-primary btn-red">Cancelar</a>
+                    </ng-template>
                 </div>
             </form>
         </div>

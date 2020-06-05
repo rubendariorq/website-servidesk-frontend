@@ -17,13 +17,15 @@ import { UserListComponent } from './components/users/user-list/user-list.compon
 import { UserAddComponent } from './components/users/user-add/user-add.component';
 import { HardwareListComponent } from './components/hardware/hardware-list/hardware-list.component';
 import { ComputerAddComponent } from './components/hardware/computers/computer-add/computer-add.component';
+import { UpsAddComponent } from './components/hardware/ups/ups-add/ups-add.component';
+import { PeripheralsAddComponent } from './components/hardware/peripherals/peripherals-add/peripherals-add.component';
+import { SectionLocationHistoryComponent } from './components/hardware/section-location-history/section-location-history.component';
 
 //Services
 import { DependenciesService } from './services/dependencies.service';
 import { UserService } from "./services/user/user.service";
 import { HardwareService } from "./services/hardware/hardware.service";
-import { UpsAddComponent } from './components/hardware/ups/ups-add/ups-add.component';
-import { PeripheralsAddComponent } from './components/hardware/peripherals/peripherals-add/peripherals-add.component';
+
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { PeripheralsAddComponent } from './components/hardware/peripherals/perip
     ComputerAddComponent,
     UpsAddComponent,
     PeripheralsAddComponent,
+    SectionLocationHistoryComponent,
   ],
   imports: [
     BrowserModule,

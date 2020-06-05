@@ -78,6 +78,18 @@ const routes: Routes = [
   {
     path: 'hardware/peripheral/edit/:id',
     component: PeripheralsAddComponent
+  },
+  {
+    path: 'hardware/ups/view/:id',
+    component: UpsAddComponent
+  },
+  {
+    path: 'hardware/peripheral/view/:id',
+    component: PeripheralsAddComponent
+  },
+  {
+    path: 'hardware/computer/view/:id',
+    component: ComputerAddComponent
   }
 ];
 

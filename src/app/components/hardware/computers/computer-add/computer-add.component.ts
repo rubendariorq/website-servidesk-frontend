@@ -19,6 +19,7 @@ export class ComputerAddComponent implements OnInit {
   title = 'Computadores'
   connectionLost: ConnectionLost;
   edit: boolean = false;
+  view: boolean = false;
   computer: Computer = {
     inventory_plate: "",
     serial: "",
@@ -26,17 +27,20 @@ export class ComputerAddComponent implements OnInit {
     months_warranty: 0,
     brand: "",
     creation_date: "",
-    status: "",
+    allocation_status: "",
     buy_date: "",
     provider: "",
     model: "",
     type_hardware: "",
     type_computer: "",
     processor: "",
-    speed_processor: "",
-    hard_drive: "",
+    processor_unit_measure: "GHz",
+    speed_processor: 0,
+    hard_drive: 0,
+    hard_drive_unit_measure: "GB",
     technology_hard_drive: "",
-    memory: "",
+    memory: 0,
+    memory_unit_measure: "GB",
     type_memory: "",
     brand_monitor: "",
     model_monitor: "",
@@ -65,10 +69,14 @@ export class ComputerAddComponent implements OnInit {
 
   ngOnInit() {
     this.getComputer();
+    const url: string = this.activatedRoute.snapshot['_routerState'].url;
+    if(url.indexOf('view') >= 0){
+      this.view = true;
+    }
   }
 
   createComputer(): void {
-    if (this.computer.buy_date == "" || this.computer.months_warranty == 0 || this.computer.inventory_plate == "" || this.computer.type_computer == "" || this.computer.serial == "" || this.computer.brand == "" || this.computer.model == "" || this.computer.processor == "" || this.computer.speed_processor == "" || this.computer.technology_hard_drive == "" || this.computer.hard_drive == "" || this.computer.type_memory == "" || this.computer.memory == "" || this.computer.brand_monitor == "" || this.computer.model_monitor == "" || this.computer.inch_monitor == 0 || this.computer.serial_monitor == "" || this.computer.brand_network_card == "" || this.computer.speed_network_card == "" || this.computer.drive == "" || this.computer.cd_rom == "" || this.computer.dvd == "" || this.computer.card_reader_driver == "" || this.computer.tape_backup == "" || this.computer.external_hard_drive == "" || this.computer.keyboard_connection == "" || this.computer.mouse_connection == "") {
+    if (this.computer.buy_date == "" || this.computer.months_warranty == 0 || this.computer.inventory_plate == "" || this.computer.type_computer == "" || this.computer.serial == "" || this.computer.brand == "" || this.computer.model == "" || this.computer.processor == "" || this.computer.speed_processor == 0 || this.computer.technology_hard_drive == "" || this.computer.hard_drive == 0 || this.computer.type_memory == "" || this.computer.memory == 0 || this.computer.brand_monitor == "" || this.computer.model_monitor == "" || this.computer.inch_monitor == 0 || this.computer.serial_monitor == "" || this.computer.brand_network_card == "" || this.computer.speed_network_card == "" || this.computer.drive == "" || this.computer.cd_rom == "" || this.computer.dvd == "" || this.computer.card_reader_driver == "" || this.computer.tape_backup == "" || this.computer.external_hard_drive == "" || this.computer.keyboard_connection == "" || this.computer.mouse_connection == "") {
       Swal.fire({
         icon: 'warning',
         text: 'Debe llenar todos los campos que tienen (*)',
@@ -76,7 +84,7 @@ export class ComputerAddComponent implements OnInit {
       });
     } else {
       this.computer.hardware_inventory_plate = this.computer.inventory_plate;
-      this.computer.status = "Actualizado";
+      this.computer.allocation_status = "Sin asignar";
       this.computer.type_hardware = "Computador";
 
       Swal.fire({
@@ -171,7 +179,7 @@ export class ComputerAddComponent implements OnInit {
   editComputer():void {
     const inventory_plate = this.activatedRoute.snapshot.params.id;
 
-    if (this.computer.buy_date == "" || this.computer.months_warranty == 0 || this.computer.inventory_plate == "" || this.computer.type_computer == "" || this.computer.serial == "" || this.computer.brand == "" || this.computer.model == "" || this.computer.processor == "" || this.computer.speed_processor == "" || this.computer.technology_hard_drive == "" || this.computer.hard_drive == "" || this.computer.type_memory == "" || this.computer.memory == "" || this.computer.brand_monitor == "" || this.computer.model_monitor == "" || this.computer.inch_monitor == 0 || this.computer.serial_monitor == "" || this.computer.brand_network_card == "" || this.computer.speed_network_card == "" || this.computer.drive == "" || this.computer.cd_rom == "" || this.computer.dvd == "" || this.computer.card_reader_driver == "" || this.computer.tape_backup == "" || this.computer.external_hard_drive == "" || this.computer.keyboard_connection == "" || this.computer.mouse_connection == "") {
+    if (this.computer.buy_date == "" || this.computer.months_warranty == 0 || this.computer.inventory_plate == "" || this.computer.type_computer == "" || this.computer.serial == "" || this.computer.brand == "" || this.computer.model == "" || this.computer.processor == "" || this.computer.speed_processor == 0 || this.computer.technology_hard_drive == "" || this.computer.hard_drive == 0 || this.computer.type_memory == "" || this.computer.memory == 0 || this.computer.brand_monitor == "" || this.computer.model_monitor == "" || this.computer.inch_monitor == 0 || this.computer.serial_monitor == "" || this.computer.brand_network_card == "" || this.computer.speed_network_card == "" || this.computer.drive == "" || this.computer.cd_rom == "" || this.computer.dvd == "" || this.computer.card_reader_driver == "" || this.computer.tape_backup == "" || this.computer.external_hard_drive == "" || this.computer.keyboard_connection == "" || this.computer.mouse_connection == "") {
       Swal.fire({
         icon: 'warning',
         text: 'Debe llenar todos los campos que tienen (*)',
@@ -179,7 +187,7 @@ export class ComputerAddComponent implements OnInit {
       });
     } else {
       this.computer.hardware_inventory_plate = this.computer.inventory_plate;
-      this.computer.status = "Actualizado";
+      this.computer.allocation_status = "Sin asignar";
       this.computer.type_hardware = "Computador";
 
       Swal.fire({

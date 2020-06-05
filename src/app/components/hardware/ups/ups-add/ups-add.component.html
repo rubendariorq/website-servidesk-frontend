@@ -9,22 +9,30 @@
                     <div class="fs-fields">
                         <div class="fs-content">
                             <div class="group-input">
-                                <label>Fecha de compra: <span>*</span></label>
-                                <input type="date" name="ups.buy_date" [(ngModel)] = "ups.buy_date">
+                                <div>
+                                    <label>Fecha de compra: <span>*</span></label>
+                                    <input type="date" name="ups.buy_date" [(ngModel)]="ups.buy_date" [disabled]="view">
+                                </div>
                             </div>
                             <div class="group-input">
-                                <label>Duración de la garantia (en meses): <span>*</span></label>
-                                <input type="number" name="ups.months_warranty" [(ngModel)] = "ups.months_warranty">
+                                <div>
+                                    <label>Duración de la garantia (en meses): <span>*</span></label>
+                                    <input type="number" name="ups.months_warranty" [(ngModel)]="ups.months_warranty" [disabled]="view">
+                                </div>
                             </div>
                         </div>
                         <div class="fs-content">
                             <div class="group-input">
-                                <label>Costo:</label>
-                                <input type="number" name="ups.cost" [(ngModel)] = "ups.cost">
+                                <div>
+                                    <label>Costo:</label>
+                                    <input type="number" name="ups.cost" [(ngModel)]="ups.cost" [disabled]="view">
+                                </div>
                             </div>
                             <div class="group-input">
-                                <label>Proveedor:</label>
-                                <input type="text" name="ups.provider" [(ngModel)] = "ups.provider">
+                                <div>
+                                    <label>Proveedor:</label>
+                                    <input type="text" name="ups.provider" [(ngModel)]="ups.provider" [disabled]="view">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -34,33 +42,50 @@
                     <div class="fs-fields">
                         <div class="fs-content">
                             <div class="group-input">
-                                <label>Placa de inventario: <span>*</span></label>
-                                <input type="text" name="ups.inventory_plate" [(ngModel)] = "ups.inventory_plate">
+                                <div>
+                                    <label>Placa de inventario: <span>*</span></label>
+                                    <input type="text" name="ups.inventory_plate" [(ngModel)]="ups.inventory_plate"
+                                    [disabled]="view">
+                                </div>
                             </div>
                             <div class="group-input">
-                                <label>Marca: <span>*</span></label>
-                                <input type="text" name="ups.brand" [(ngModel)] = "ups.brand">
+                                <div>
+                                    <label>Marca: <span>*</span></label>
+                                    <input type="text" name="ups.brand" [(ngModel)]="ups.brand" [disabled]="view">
+                                </div>
                             </div>
                             <div class="group-input">
-                                <label>Capacidad: <span>*</span></label>
-                                <input type="text" name="ups.capacity" [(ngModel)] = "ups.capacity">
+                                <div>
+                                    <label>Capacidad: <span>*</span></label>
+                                    <input type="text" name="ups.capacity" [(ngModel)]="ups.capacity" [disabled]="view">
+                                </div>
                             </div>
                         </div>
                         <div class="fs-content">
                             <div class="group-input">
-                                <label>Serial: <span>*</span></label>
-                                <input type="text" name="ups.serial" [(ngModel)] = "ups.serial">
+                                <div>
+                                    <label>Serial: <span>*</span></label>
+                                    <input type="text" name="ups.serial" [(ngModel)]="ups.serial" [disabled]="view">
+                                </div>
                             </div>
                             <div class="group-input">
-                                <label>Modelo: <span>*</span></label>
-                                <input type="text" name="ups.model" [(ngModel)] = "ups.model">
+                                <div>
+                                    <label>Modelo: <span>*</span></label>
+                                    <input type="text" name="ups.model" [(ngModel)]="ups.model" [disabled]="view">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <app-section-location-history *ngIf="view == true"></app-section-location-history>
                 <div class="group-buttons action">
-                    <button class="btn-primary btn-blue" (click) = "edit ? updateUps() : createUps()">Guardar</button>
-                    <a routerLink="/hardware" class="btn-primary btn-red">Cancelar</a>
+                    <div *ngIf="view; else showBtnReturn">
+                        <a routerLink="/hardware" class="btn-primary btn-red">Volver</a>
+                    </div>
+                    <ng-template #showBtnReturn>
+                        <button class="btn-primary btn-blue" (click)="edit ? updateUps() : createUps()">Guardar</button>
+                        <a routerLink="/hardware" class="btn-primary btn-red">Cancelar</a>
+                    </ng-template>
                 </div>
             </form>
         </div>

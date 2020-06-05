@@ -19,7 +19,6 @@ export class HardwareListComponent implements OnInit {
   title = 'Hardware';
   connectionLost: ConnectionLost;
   hardware: any = [];
-  dependencies: any = [];
   selectDependencie = "";
   selectTypeHardware = "";
 
@@ -38,7 +37,7 @@ export class HardwareListComponent implements OnInit {
         Swal.showLoading()
       }
     });
-    this.dependenciesService.getDependencies()
+    this.hardwareService.getAllHardware()
       .subscribe(
         res => {
           console.log(res);
@@ -50,40 +49,14 @@ export class HardwareListComponent implements OnInit {
             this.getAllHardware();
           } else {
             if (res[0] == undefined) {
-              this.router.navigate(["/dependencies/add"]);
               Swal.fire({
                 icon: 'warning',
                 title: 'Aviso',
-                text: 'Debe registrar las dependencias antes de continuar',
+                text: 'No hay hardware registrado',
                 confirmButtonColor: '00aa99'
               })
             } else {
-              this.dependencies = res;
-
-              this.hardwareService.getAllHardware()
-                .subscribe(
-                  res => {
-                    console.log(res);
-
-                    this.connectionLost = res;
-                    if (this.connectionLost.code == 'ETIMEDOUT') {
-                      console.log('Conexión perdida. Reconectando...');
-                      this.getAllHardware();
-                    } else {
-                      if (res[0] == undefined) {
-                        Swal.fire({
-                          icon: 'warning',
-                          title: 'Aviso',
-                          text: 'No hay hardware registrado',
-                          confirmButtonColor: '00aa99'
-                        })
-                      } else {
-                        this.hardware = res;
-                      }
-                    }
-                  },
-                  err => console.error(err)
-                );
+              this.hardware = res;
             }
           }
         },
@@ -91,10 +64,10 @@ export class HardwareListComponent implements OnInit {
       );
   }
 
-  getHardwareForDependencie(dependencie: string) {
+  getHardwareForAllocationStatus(status: string) {
     this.selectTypeHardware = "";
 
-    if (dependencie != "") {
+    if (status != "") {
       Swal.fire({
         title: 'Espere un momento',
         text: 'Estamos realizando la consulta',
@@ -103,7 +76,7 @@ export class HardwareListComponent implements OnInit {
           Swal.showLoading()
         }
       });
-      this.hardwareService.getHardwareForDependencie(dependencie)
+      this.hardwareService.getHardwareForAllocationStatus(status)
         .subscribe(
           res => {
             console.log(res);
@@ -112,7 +85,7 @@ export class HardwareListComponent implements OnInit {
             this.connectionLost = res;
             if (this.connectionLost.code == 'ETIMEDOUT') {
               console.log('Conexión perdida. Reconectando...');
-              this.getHardwareForDependencie(dependencie);
+              this.getHardwareForAllocationStatus(status);
             } else {
               if (res[0] == undefined) {
                 Swal.fire({
@@ -187,6 +160,18 @@ export class HardwareListComponent implements OnInit {
         this.router.navigate([`/hardware/ups/edit/${inventory_plate}`]);
       } else {
         this.router.navigate([`/hardware/peripheral/edit/${inventory_plate}`]);
+      }
+    }
+  }
+
+  redirectView(inventory_plate: string, type_hardware: string): void {
+    if (type_hardware == "Computador") {
+      this.router.navigate([`/hardware/computer/view/${inventory_plate}`]);
+    } else {
+      if (type_hardware == "Ups") {
+        this.router.navigate([`/hardware/ups/view/${inventory_plate}`]);
+      } else {
+        this.router.navigate([`/hardware/peripheral/view/${inventory_plate}`]);
       }
     }
   }

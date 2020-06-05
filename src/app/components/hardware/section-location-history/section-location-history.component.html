@@ -1,0 +1,42 @@
+<div class="form-section">
+    <div class="fs-title">Ubicación actual</div>
+    <div *ngIf="hardwareAssignment; else showFormAssignment">
+        <div class="msg-alert msg-success">El hardware esta asignado a un funcionario actualmente.</div>
+    </div>
+    <ng-template #showFormAssignment>
+        <div class="msg-alert msg-warning">El hardware no esta asignado a ningún funcionario actualmente</div>
+    </ng-template>
+    <div class="ubicationInfo">
+        <div>
+            <p><strong>Funcionario(a): </strong><label>{{hardwareUbication.name}}</label></p>
+            <p><strong>Dependencia: </strong><label>{{hardwareUbication.name_dependencie}}</label></p>
+            <p><strong>Fecha de asignación: </strong><label>{{hardwareUbication.assignment_date}}</label></p>
+        </div>
+    </div>
+</div>
+<div class="form-section">
+    <div class="fs-title">Historial de ubicaciones</div>
+    <div class="card">
+        <div class="card-header"></div>
+        <div class="card-body">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="20%">Responsable</th>
+                        <th width="20%">Dependencia</th>
+                        <th width="15%">Fecha Asignación</th>
+                        <th width="15%">Fecha Devolución</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let hardUbi of hardwareUbications; let i = index">
+                        <td>{{hardUbi.name}}</td>
+                        <td>{{hardUbi.name_dependencie}}</td>
+                        <td>{{hardUbi.assignment_date}}</td>
+                        <td>{{hardUbi.return_date}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
