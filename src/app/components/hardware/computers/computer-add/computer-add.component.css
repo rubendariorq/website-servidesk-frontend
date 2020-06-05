@@ -101,6 +101,14 @@ select{
     color: #979595;
 }
 
+.group-input-duo input{
+    width: 70%;
+}
+
+.group-input-duo select{
+    width: 30%;
+}
+
 .group-buttons{
     text-align: right;
     font-size: 1em;

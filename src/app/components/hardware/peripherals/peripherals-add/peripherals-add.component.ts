@@ -19,6 +19,7 @@ export class PeripheralsAddComponent implements OnInit {
   title = 'Hardware';
   connectionLost: ConnectionLost;
   edit: boolean = false;
+  view: boolean = false;
   peripheral: Peripheral = {
     inventory_plate: "",
     serial: "",
@@ -26,7 +27,7 @@ export class PeripheralsAddComponent implements OnInit {
     months_warranty: 0,
     brand: "",
     creation_date: "",
-    status: "",
+    allocation_status: "",
     buy_date: "",
     provider: "",
     model: "",
@@ -39,6 +40,10 @@ export class PeripheralsAddComponent implements OnInit {
 
   ngOnInit() {
     this.getPeripheral();
+    const url: string = this.activatedRoute.snapshot['_routerState'].url;
+    if(url.indexOf('view') >= 0){
+      this.view = true;
+    }
   }
 
   createPeripheral(): void {
@@ -50,7 +55,7 @@ export class PeripheralsAddComponent implements OnInit {
       });
     } else {
       this.peripheral.hardware_inventory_plate = this.peripheral.inventory_plate;
-      this.peripheral.status = "Actualizado";
+      this.peripheral.allocation_status = "Sin asignar";
       this.peripheral.type_hardware = "Periferico";
 
       Swal.fire({
@@ -153,7 +158,7 @@ export class PeripheralsAddComponent implements OnInit {
       });
     } else {
       this.peripheral.hardware_inventory_plate = this.peripheral.inventory_plate;
-      this.peripheral.status = "Actualizado";
+      this.peripheral.allocation_status = "Sin asignar";
       this.peripheral.type_hardware = "Periferico";
 
       Swal.fire({

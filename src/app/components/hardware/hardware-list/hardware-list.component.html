@@ -17,10 +17,10 @@
                         <option value="Ups">Ups</option>
                         <option value="Periferico">Periférico</option>
                     </select>
-                    <select name="selectDependencie" [(ngModel)]="selectDependencie" (change)="getHardwareForDependencie($event.target.value)">
-                        <option value="" selected>Cualquier dependencia</option>
-                        <option value="{{dependencie.name_dependencie}}" *ngFor="let dependencie of dependencies">
-                            {{dependencie.name_dependencie}}</option>
+                    <select name="selectDependencie" [(ngModel)]="selectDependencie" (change)="getHardwareForAllocationStatus($event.target.value)">
+                        <option value="" selected>Estado de asignación</option>
+                        <option value="Asignado" selected>Asignado</option>
+                        <option value="Sin asignar" selected>Sin asignar</option>
                     </select>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                             <th width="15%">Modelo</th>
                             <th width="15%">Serial</th>
                             <th width="15%">Tipo de Hardware</th>
-                            <th width="20%">Dependencia</th>
+                            <th width="20%">Estado de asignación</th>
                             <th width="15%">Acciones</th>
                         </tr>
                     </thead>
@@ -44,9 +44,9 @@
                             <td>{{hardw.model}}</td>
                             <td>{{hardw.serial}}</td>
                             <td>{{hardw.type_hardware}}</td>
-                            <td>{{hardw.name_dependencie}}</td>
+                            <td>{{hardw.allocation_status}}</td>
                             <td>
-                                <a class="btnAction view"><i class="fas fa-eye"></i></a>
+                                <a class="btnAction view" (click) = "redirectView(hardw.inventory_plate, hardw.type_hardware)"><i class="fas fa-eye"></i></a>
                                 <a (click) = "redirectEdit(hardw.inventory_plate, hardw.type_hardware)" class="btnAction edit"><i class="fas fa-edit"></i></a>
                                 <button class="btnAction delete" (click) = "deleteHardware(hardw.inventory_plate)"><i class="fas fa-trash"></i></button>
                             </td>

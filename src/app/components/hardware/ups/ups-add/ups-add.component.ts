@@ -19,6 +19,7 @@ export class UpsAddComponent implements OnInit {
   title = 'Hardware';
   connectionLost: ConnectionLost;
   edit: boolean = false;
+  view: boolean = false;
   ups: Ups = {
     inventory_plate: "",
     serial: "",
@@ -26,7 +27,7 @@ export class UpsAddComponent implements OnInit {
     months_warranty: 0,
     brand: "",
     creation_date: "",
-    status: "",
+    allocation_status: "",
     buy_date: "",
     provider: "",
     model: "",
@@ -39,6 +40,10 @@ export class UpsAddComponent implements OnInit {
 
   ngOnInit() {
     this.getUps();
+    const url: string = this.activatedRoute.snapshot['_routerState'].url;
+    if(url.indexOf('view') >= 0){
+      this.view = true;
+    }
   }
 
   createUps(): void {
@@ -50,7 +55,7 @@ export class UpsAddComponent implements OnInit {
       });
     } else {
       this.ups.hardware_inventory_plate = this.ups.inventory_plate;
-      this.ups.status = "Actualizado";
+      this.ups.allocation_status = "Sin asignar";
       this.ups.type_hardware = "Ups";
 
       Swal.fire({
@@ -153,7 +158,7 @@ export class UpsAddComponent implements OnInit {
       });
     } else {
       this.ups.hardware_inventory_plate = this.ups.inventory_plate;
-      this.ups.status = "Actualizado";
+      this.ups.allocation_status = "Sin asignar";
       this.ups.type_hardware = "Ups";
 
       Swal.fire({

@@ -1,8 +1,7 @@
 export interface User{
     id_user: number,
     email: string,
-    first_name: string,
-    last_name: string,
+    name: string,
     password:string,
     password_changed_date: string,
     type_user: string,

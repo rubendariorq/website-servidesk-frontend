@@ -34,6 +34,10 @@ export class UserService {
     return this.http.get(`${this.API_URI}/users/filter/email/${email}`);
   }
 
+  getUserForName(name:String): Observable<any>{
+    return this.http.get(`${this.API_URI}/users/filter/name/${name}`);
+  }
+
   getUserForId(id:number): Observable<any>{
     return this.http.get(`${this.API_URI}/users/${id}`);
   }

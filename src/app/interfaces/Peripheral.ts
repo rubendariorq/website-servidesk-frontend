@@ -5,7 +5,7 @@ export interface Peripheral{
     months_warranty: number,
     brand: string,
     creation_date: string,
-    status: string,
+    allocation_status: string,
     buy_date: string,
     provider: string,
     model: string,

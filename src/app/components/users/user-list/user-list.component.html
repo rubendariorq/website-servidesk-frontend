@@ -31,8 +31,7 @@
                     <thead>
                         <tr>
                             <th width="5%">No.</th>
-                            <th width="15%">Nombre</th>
-                            <th width="15%">Apellido</th>
+                            <th width="30%">Nombre</th>
                             <th width="25%">Dependencia</th>
                             <th width="10%">Estado</th>
                             <th width="15%">Tipo de usuario</th>
@@ -42,8 +41,7 @@
                     <tbody>
                         <tr *ngFor="let user of users; let i = index">
                             <td>{{i+1}}</td>
-                            <td>{{user.first_name}}</td>
-                            <td>{{user.last_name}}</td>
+                            <td>{{user.name}}</td>
                             <td>{{user.name_dependencie}}</td>
                             <td>{{user.status}}</td>
                             <td>{{user.type_user}}</td>

@@ -24,8 +24,7 @@ export class UserAddComponent implements OnInit {
   user: User = {
     id_user: 0,
     email: "",
-    first_name: "",
-    last_name: "",
+    name: "",
     password: "",
     password_changed_date: "",
     type_user: "",
@@ -82,7 +81,7 @@ export class UserAddComponent implements OnInit {
   }
 
   addUser() {
-    if (this.user.email == "" || this.user.first_name == "" || this.user.last_name == "" || this.user.password == "" || this.user.type_user == "" || this.user.dependencies_id_dependencie == 0) {
+    if (this.user.email == "" || this.user.name == "" || this.user.password == "" || this.user.type_user == "" || this.user.dependencies_id_dependencie == 0) {
       Swal.fire({
         icon: 'warning',
         text: 'Debe llenar todos los campos',
@@ -217,7 +216,7 @@ export class UserAddComponent implements OnInit {
   updateUser(): void {
     const id = this.activatedRoute.snapshot.params.id;
 
-    if (this.user.email == "" || this.user.first_name == "" || this.user.last_name == "" || this.user.type_user == "" || this.user.dependencies_id_dependencie == 0) {
+    if (this.user.email == "" || this.user.name == "" || this.user.type_user == "" || this.user.dependencies_id_dependencie == 0) {
       Swal.fire({
         icon: 'warning',
         text: 'Debe llenar todos los campos',
