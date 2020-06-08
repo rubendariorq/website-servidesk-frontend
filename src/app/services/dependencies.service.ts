@@ -10,7 +10,7 @@ import { Dependencie } from '../interfaces/Dependencie';
 })
 export class DependenciesService {
 
-  API_URI = 'http://localhost:3000/api';
+  API_URI = 'http://localhost:3200/api';
 
   constructor(private http: HttpClient) { }
 

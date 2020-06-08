@@ -20,6 +20,7 @@ export class UpsAddComponent implements OnInit {
   connectionLost: ConnectionLost;
   edit: boolean = false;
   view: boolean = false;
+  allocationStatus: boolean = false;
   ups: Ups = {
     inventory_plate: "",
     serial: "",
@@ -139,6 +140,10 @@ export class UpsAddComponent implements OnInit {
                 let aux = this.ups.buy_date;
                 let date = aux.split('T');
                 this.ups.buy_date = date[0];
+
+                if(this.ups.allocation_status == 'Asignado'){
+                  this.allocationStatus = true;
+                }
               }
             }
           },

@@ -1,0 +1,41 @@
+<div class="form-section">
+    <div class="fs-title">Asignar a funcionario</div>
+    <form>
+        <div class="fs-fields">
+            <div class="fs-content">
+                <div class="group-input">
+                    <div>
+                        <label>Placa de inventario: <span>*</span></label>
+                        <select name="selectDependencie" [(ngModel)]="selectDependencie"
+                            (change)="getUsersForDependencie($event.target.value)">
+                            <option value="" selected>Cualquier dependencia</option>
+                            <option value="{{dependencie.name_dependencie}}" *ngFor="let dependencie of dependencies">
+                                {{dependencie.name_dependencie}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="group-input">
+                    <div>
+                        <label>Marca: <span>*</span></label>
+                        <select id="selectUsers" name="selectUsers" [(ngModel)]="selectUsers" (change) = "getUser($event.target.value)" disabled>
+                            <option value="" selected>Cualquier funcionario</option>
+                            <option value="{{user.name}}" *ngFor="let user of users">{{user.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="fs-content">
+                <div class="group-input">
+                    <div>
+                        <label>Fecha de asignación: <span>*</span></label>
+                        <input type="date" name="hardwareUbications.assignment_date" [(ngModel)] = "hardwareUbications.assignment_date">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="group-buttons action">
+            <button class="btn-primary btn-blue" (click)="saveHardwareForUser()">Guardar</button>
+        </div>
+    </form>
+</div>

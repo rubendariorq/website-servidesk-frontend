@@ -13,7 +13,7 @@ import { HardwareUbications } from "../../interfaces/HardwareUbications";
 })
 export class HardwareService {
 
-  private API_URI = 'http://localhost:3000/api';
+  private API_URI = 'http://localhost:3200/api';
 
   constructor(private http:HttpClient) { }
 
