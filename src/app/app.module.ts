@@ -26,6 +26,7 @@ import { DependenciesService } from './services/dependencies.service';
 import { UserService } from "./services/user/user.service";
 import { HardwareService } from "./services/hardware/hardware.service";
 import { SectionAssignComponent } from './components/hardware/ups/section-assign/section-assign.component';
+import { SectionAssignComputerComponent } from './components/hardware/computers/section-assign-computer/section-assign-computer.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { SectionAssignComponent } from './components/hardware/ups/section-assign
     PeripheralsAddComponent,
     SectionLocationHistoryComponent,
     SectionAssignComponent,
+    SectionAssignComputerComponent,
   ],
   imports: [
     BrowserModule,

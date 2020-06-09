@@ -20,6 +20,7 @@ export class ComputerAddComponent implements OnInit {
   connectionLost: ConnectionLost;
   edit: boolean = false;
   view: boolean = false;
+  allocationStatus: boolean = false;
   computer: Computer = {
     inventory_plate: "",
     serial: "",
@@ -168,6 +169,10 @@ export class ComputerAddComponent implements OnInit {
                 let aux = this.computer.buy_date;
                 let date = aux.split('T');
                 this.computer.buy_date = date[0];
+
+                if(this.computer.allocation_status == 'Asignado'){
+                  this.allocationStatus = true;
+                }
               }
             }
           },

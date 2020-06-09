@@ -76,4 +76,11 @@ export class HardwareService {
   addUbicationHardware(hardwareUbications: HardwareUbications): Observable<any>{
     return this.http.post(`${this.API_URI}/hardware/addUbication`, hardwareUbications);
   }
+
+  addUbicationComputer(hardwareUbications: HardwareUbications, computer: Computer): Observable<any>{
+    let arrayAux = [];
+    arrayAux.push(hardwareUbications);
+    arrayAux.push(computer);
+    return this.http.post(`${this.API_URI}/hardware/addUbication/computer`, arrayAux);
+  }
 }

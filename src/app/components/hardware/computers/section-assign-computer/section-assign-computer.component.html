@@ -34,6 +34,41 @@
                 </div>
             </div>
         </div>
+        <div class="fs-fields">
+            <div class="fs-content">
+                <div class="group-input">
+                    <label>Nombre de la maquina en la red: <span>*</span></label>
+                    <input type="text" name="computer.name_machine" [(ngModel)] = "computer.name_machine">
+                </div>
+                <div class="group-input">
+                    <label>Dirección IP: <span>*</span></label>
+                    <input type="text" name="computer.ip_direction" [(ngModel)] = "computer.ip_direction">
+                </div>
+                <div class="group-input">
+                    <label>Dirección MAC: <span>*</span></label>
+                    <input type="text" name="computer.mac_direction" [(ngModel)] = "computer.mac_direction">
+                </div>
+            </div>
+            <div class="fs-content">
+                <div class="group-input">
+                    <div>
+                        <label>Conexión a internet: <span>*</span></label>
+                        <select name="computer.internet_type_connection" [(ngModel)] = "computer.internet_type_connection">
+                            <option value="">Cualquier conexión</option>
+                            <option value="Banda ancha o cable">Banda ancha o cable</option>
+                            <option value="Satelital">Satelital</option>
+                            <option value="DSL">DSL</option>
+                            <option value="Inalambrica">Inalambrica</option>
+                            <option value="No tiene">No tiene</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="group-input">
+                    <label>Proveedor de internet: <span>*</span></label>
+                    <input type="text" name="computer.internet_provider" [(ngModel)] = "computer.internet_provider">
+                </div>
+            </div>
+        </div>
         <div class="group-buttons action">
             <button class="btn-primary btn-blue" (click)="saveHardwareForUser()">Guardar</button>
         </div>
