@@ -13,6 +13,18 @@
             <p><strong>Fecha de asignación: </strong><label>{{hardwareUbication.assignment_date}}</label></p>
         </div>
     </div>
+    <div class="fs-fields" *ngIf = "allocationStatus == true">
+        <div class="fs-content">
+            <div class="group-input">
+                <label>Fecha de devolución: <span>*</span></label>
+                <input type="date" name="hardwareUbication2.return_date" [(ngModel)]="hardwareUbication2.return_date">
+            </div>
+            <div class="group-buttons action">
+                <button class="btn-primary btn-blue" (click)="deallocateHardwareForUser()">Desvincular dispositivo</button>
+            </div>
+        </div>
+        <div class="fs-content"></div>
+    </div>
 </div>
 <div class="form-section">
     <div class="fs-title">Historial de ubicaciones</div>

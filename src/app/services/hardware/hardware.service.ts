@@ -103,4 +103,25 @@ export class HardwareService {
   addPeripheralsUbication(peripheralForComputer: PeripheralForComputer): Observable<any>{
     return this.http.post(`${this.API_URI}/hardware/peripheralsAddUbication`, peripheralForComputer);
   }
+
+  deallocateUps(hardwareUbicationsOld: HardwareUbications, hardwareUbicationsNew: HardwareUbications): Observable<any>{
+    let arrayAux = [];
+    arrayAux.push(hardwareUbicationsOld);
+    arrayAux.push(hardwareUbicationsNew);
+    return this.http.put(`${this.API_URI}/hardware/ups`, arrayAux);
+  }
+
+  deallocatePeripheral(hardwareUbicationsOld: HardwareUbications, hardwareUbicationsNew: HardwareUbications): Observable<any>{
+    let arrayAux = [];
+    arrayAux.push(hardwareUbicationsOld);
+    arrayAux.push(hardwareUbicationsNew);
+    return this.http.put(`${this.API_URI}/hardware/peripherals`, arrayAux);
+  }
+
+  deallocateComputer(hardwareUbicationsOld: HardwareUbications, hardwareUbicationsNew: HardwareUbications): Observable<any>{
+    let arrayAux = [];
+    arrayAux.push(hardwareUbicationsOld);
+    arrayAux.push(hardwareUbicationsNew);
+    return this.http.put(`${this.API_URI}/hardware/computers`, arrayAux);
+  }
 }
