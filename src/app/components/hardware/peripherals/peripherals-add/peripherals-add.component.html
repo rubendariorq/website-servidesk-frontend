@@ -71,6 +71,7 @@
                         </div>
                     </div>
                 </div>
+                <app-section-assign-peripheral *ngIf="view == true"></app-section-assign-peripheral>
                 <app-section-location-history *ngIf="view == true"></app-section-location-history>
                 <div class="group-buttons action">
                     <div *ngIf="view; else showBtnReturn">

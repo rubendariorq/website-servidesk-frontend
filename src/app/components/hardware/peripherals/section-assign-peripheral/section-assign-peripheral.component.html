@@ -1,0 +1,63 @@
+<div class="form-section">
+    <div class="fs-title">Asignar a funcionario</div>
+    <div class="msg-alert msg-warning">Solo se podrá asignar periféricos a computadores que ya estan asignados a algún funcionarios. Cuando la conexión es local, se asignará como responsable al funcionario a cargo de dicho computador.</div>
+    <form>
+        <div class="fs-fields">
+            <div class="fs-content">
+                <div class="group-input">
+                    <div>
+                        <label>Dependencia: <span>*</span></label>
+                        <select name="selectDependencie" [(ngModel)]="selectDependencie"
+                            (change)="getUsersForDependencie($event.target.value)">
+                            <option value="" selected>Cualquier dependencia</option>
+                            <option value="{{dependencie.name_dependencie}}" *ngFor="let dependencie of dependencies">
+                                {{dependencie.name_dependencie}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="group-input">
+                    <div>
+                        <label>Funcionario(a): <span>*</span></label>
+                        <select id="selectUser" name="selectUsers" [(ngModel)]="selectUsers" (change) = "getComputerForUser($event.target.value)" disabled>
+                            <option value="" selected>Cualquier funcionario</option>
+                            <option value="{{user.id_user}}" *ngFor="let user of users">{{user.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="group-input">
+                    <div>
+                        <label>Computador: <span>*</span></label>
+                        <select id="selectComputers" name="selectComputers" [(ngModel)]="selectComputers" (click) = "showInfoComputer($event.target.value)" disabled>
+                            <option value="">Cualquier computador</option>
+                            <option value="{{computer.inventory_plate}}" *ngFor="let computer of computers">{{computer.inventory_plate}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ubicationInfo">
+                    <div>
+                        <p><strong>Serial: </strong><label>{{comp.serial}}</label></p>
+                        <p><strong>Marca: </strong><label>{{comp.brand}}</label></p>
+                        <p><strong>Modelo: </strong><label>{{comp.model}}</label></p>
+                    </div>
+                </div>
+            </div>
+            <div class="fs-content">
+                <div class="group-input">
+                    <div>
+                        <label>Tipo de conexión: <span>*</span></label>
+                        <select name="peripheralForUser.connection_type" [(ngModel)] = "peripheralForUser.connection_type">
+                            <option value="">Cualquier conexión</option>
+                            <option value="Local">Local</option>
+                            <option value="Red">Red</option>
+                            <option value="Inalambrica">Inalambrica</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="group-buttons action">
+            <button class="btn-primary btn-blue" (click) = "savePeripheralForUser()">Guardar</button>
+        </div>
+    </form>
+</div>

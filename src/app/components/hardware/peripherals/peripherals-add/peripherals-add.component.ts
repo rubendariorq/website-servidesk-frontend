@@ -20,6 +20,7 @@ export class PeripheralsAddComponent implements OnInit {
   connectionLost: ConnectionLost;
   edit: boolean = false;
   view: boolean = false;
+  allocationStatus: boolean = false;
   peripheral: Peripheral = {
     inventory_plate: "",
     serial: "",
@@ -139,6 +140,10 @@ export class PeripheralsAddComponent implements OnInit {
                 let aux = this.peripheral.buy_date;
                 let date = aux.split('T');
                 this.peripheral.buy_date = date[0];
+
+                if(this.peripheral.allocation_status == 'Asignado'){
+                  this.allocationStatus = true;
+                }
               }
             }
           },

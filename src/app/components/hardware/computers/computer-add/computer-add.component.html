@@ -222,7 +222,7 @@
                         </div>
                     </div>
                 </div>
-                <app-section-assign-computer *ngIf="allocationStatus == false"></app-section-assign-computer>
+                <app-section-assign-computer *ngIf="allocationStatus == false && view == true"></app-section-assign-computer>
                 <app-section-location-history *ngIf="view == true"></app-section-location-history>
                 <div class="group-buttons action">
                     <div *ngIf="view; else showBtnReturn">

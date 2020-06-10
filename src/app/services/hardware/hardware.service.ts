@@ -7,6 +7,7 @@ import { Computer } from "../../interfaces/Computer";
 import { Ups } from "../../interfaces/Ups";
 import { Peripheral } from 'src/app/interfaces/Peripheral';
 import { HardwareUbications } from "../../interfaces/HardwareUbications";
+import { PeripheralForComputer } from 'src/app/interfaces/PeripheralForConputer';
 
 @Injectable({
   providedIn: 'root'
@@ -82,5 +83,24 @@ export class HardwareService {
     arrayAux.push(hardwareUbications);
     arrayAux.push(computer);
     return this.http.post(`${this.API_URI}/hardware/addUbication/computer`, arrayAux);
+  }
+
+  getComputersForUser(idUser: string): Observable<any>{
+    return this.http.get(`${this.API_URI}/hardware/computersForUser/${idUser}`);
+  }
+
+  getUserForComputer(idComputer: string): Observable<any>{
+    return this.http.get(`${this.API_URI}/hardware/userForComputer/${idComputer}`);
+  }
+
+  addPeripheralsUbicationAndLinkComputer(hardwareUbications: HardwareUbications, peripheralForComputer: PeripheralForComputer): Observable<any>{
+    let arrayAux = [];
+    arrayAux.push(hardwareUbications);
+    arrayAux.push(peripheralForComputer);
+    return this.http.post(`${this.API_URI}/hardware/peripheralsAddUbicationAndLinkComputer`, arrayAux);
+  }
+
+  addPeripheralsUbication(peripheralForComputer: PeripheralForComputer): Observable<any>{
+    return this.http.post(`${this.API_URI}/hardware/peripheralsAddUbication`, peripheralForComputer);
   }
 }
