@@ -124,4 +124,16 @@ export class HardwareService {
     arrayAux.push(hardwareUbicationsNew);
     return this.http.put(`${this.API_URI}/hardware/computers`, arrayAux);
   }
+
+  getPrintersForComputer(inventory_plate: string): Observable<any>{
+    return this.http.get(`${this.API_URI}/hardware/printers/${inventory_plate}`);
+  }
+
+  disconnectPeripheral(inventory_plate: string): Observable<any>{
+    return this.http.delete(`${this.API_URI}/hardware/printers/${inventory_plate}`);
+  }
+
+  getPrintersUbication(inventory_plate: string): Observable<any>{
+    return this.http.get(`${this.API_URI}/hardware/printersUbication/${inventory_plate}`);
+  }
 }

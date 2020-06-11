@@ -1,0 +1,173 @@
+.btnAction{
+    margin-left: 5px;
+    padding: 7px;
+    border-radius: 5px;
+    border: 0px;
+}
+
+.btn-primary{
+    padding: 5px 10px;
+    background-color: #00aa99;
+    border-radius: 5px;
+    border: 1px solid;
+    color: #FFFFFF;
+}
+
+.card{
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    margin: 15px 0px;
+}
+
+.card-header{
+    padding: 20px;
+    background-color: #00aa99;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+}
+
+.card-body{
+    padding: 20px 10px;
+}
+
+.delete{
+    background-color: #e93632;
+    border-color: #c72825;
+    color: #FFF;
+}
+
+.form-section{
+    padding: 10px;
+    color: #979595;
+    clear: both;
+}
+
+.fs-title{
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e8dbdb;
+}
+
+.fs-fields{
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.fs-content{
+    float: left;
+    width: 45%;
+    padding: 10px;
+}
+
+.fs-content span{
+    color: #c72825;
+    font-size: 1.2em;
+}
+
+.group-input, .group-buttons{
+    margin-bottom: 10px;
+}
+
+.group-input input, .group-input select, .group-input textarea{
+    padding: 8px;
+    margin-top: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #acacac;
+    border-radius: 5px;
+}
+
+select{
+    color: #201111;
+}
+
+.group-input label{
+    color: #979595;
+}
+
+.group-buttons{
+    text-align: right;
+    font-size: 1em;
+    margin-top: 20px;
+}
+
+.group-buttons button{
+    margin-right: 5px;
+}
+
+.msg-alert{
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.msg-success{
+    background-color: #D0EDDA;
+    border: 1px solid #C2E8D0;
+    color: #4A8E61;
+}
+
+.msg-danger{
+    background-color: #FBD5D9;
+    border: 1px solid #F9C4CB;
+    color: #AA5A63;
+}
+
+.msg-warning{
+    background-color: #FFF2CF;
+    border: 1px solid #FFF3D2;
+    color: #866310;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table tr{
+    border-bottom: 1px solid #ebebeb;
+}
+
+table tbody tr td:nth-child(2){
+    text-align: left;
+}
+
+table th, table td{
+    padding: 5px;
+    color: #333333;
+}
+
+table tbody tr:hover{
+    background: rgba(0, 170, 153, 0.1);
+}
+
+.ubicationInfo{
+    margin: 10px 0px;
+    color: #333333;
+}
+
+.ubicationInfo p{
+    margin: 5px 0px;
+}
+
+@media screen and (min-width: 1400px){
+    .main-container{
+        margin-left: 250px;
+    }
+
+    .content{
+        font-size: 1em;
+    }
+
+    .group-buttons button{
+        font-size: 1em;
+    }
+
+    .group-input input{
+        padding: 10px;
+    }
+}

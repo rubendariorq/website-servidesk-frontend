@@ -1,0 +1,32 @@
+<div class="form-section">
+    <div class="fs-title">Impresoras conectadas</div>
+    <div class="card">
+        <div class="card-header"></div>
+        <div class="card-body">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="5%">No.</th>
+                        <th width="20%">Marca</th>
+                        <th width="20%">Model</th>
+                        <th width="20%">Serial</th>
+                        <th width="20%">Tipo de conexión</th>
+                        <th width="15%">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let printer of printers; let i = index">
+                        <td>{{i + 1}}</td>
+                        <td>{{printer.brand}}</td>
+                        <td>{{printer.model}}</td>
+                        <td>{{printer.serial}}</td>
+                        <td>{{printer.connection_type}}</td>
+                        <td>
+                            <button class="btnAction delete" (click)="deleteConnectionPrinter(printer)"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
