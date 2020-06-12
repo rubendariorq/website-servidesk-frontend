@@ -29,6 +29,7 @@ import { SectionAssignComponent } from './components/hardware/ups/section-assign
 import { SectionAssignComputerComponent } from './components/hardware/computers/section-assign-computer/section-assign-computer.component';
 import { SectionAssignPeripheralComponent } from './components/hardware/peripherals/section-assign-peripheral/section-assign-peripheral.component';
 import { SectionConnectedPrintersComponent } from './components/hardware/computers/section-connected-printers/section-connected-printers.component';
+import { SectionNetworkConfigurationComponent } from './components/hardware/computers/section-network-configuration/section-network-configuration.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { SectionConnectedPrintersComponent } from './components/hardware/compute
     SectionAssignComputerComponent,
     SectionAssignPeripheralComponent,
     SectionConnectedPrintersComponent,
+    SectionNetworkConfigurationComponent,
   ],
   imports: [
     BrowserModule,

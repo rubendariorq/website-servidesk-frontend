@@ -136,4 +136,8 @@ export class HardwareService {
   getPrintersUbication(inventory_plate: string): Observable<any>{
     return this.http.get(`${this.API_URI}/hardware/printersUbication/${inventory_plate}`);
   }
+
+  uptadeNetworkConfiguration(computer:Computer): Observable<any>{
+    return this.http.put(`${this.API_URI}/hardware/computer`, computer);
+  }
 }
