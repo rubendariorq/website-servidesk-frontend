@@ -1,0 +1,68 @@
+<app-menu></app-menu>
+<div class="main-container">
+    <app-logout-bar [title]=title></app-logout-bar>
+    <div class="content">
+        <div class="card">
+            <form>
+                <div class="form-section">
+                    <div class="fs-title">Información general</div>
+                    <div class="fs-fields">
+                        <div class="group-input">
+                            <label>Código serial: <span>*</span></label>
+                            <textarea name="license.serial_code" [(ngModel)]="license.serial_code" cols="80" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="fs-fields">
+                        <div class="fs-content">
+                            <div class="group-input">
+                                <div>
+                                    <label>Meses de validez: <span>*</span></label>
+                                    <input type="number" name="license.months_validity" [(ngModel)]="license.months_validity">
+                                </div>
+                            </div>
+                            <div class="group-input">
+                                <div>
+                                    <label>Costo: <span>*</span></label>
+                                    <input type="number" name="license.cost" [(ngModel)]="license.cost">
+                                </div>
+                            </div>
+                            <div class="group-input">
+                                <label>Comercial/Libre: <span>*</span></label>
+                                <select name="license.free_commercial" [(ngModel)]="license.free_commercial">
+                                    <option value="">Seleccione</option>
+                                    <option value="Comercial">Comercial</option>
+                                    <option value="Libre">Libre</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="fs-content">
+                            <div class="group-input">
+                                <label>Cliente/Servidor: <span>*</span></label>
+                                <select name="license.client_server" [(ngModel)]="license.client_server">
+                                    <option value="">Seleccione</option>
+                                    <option value="Cliente">Cliente</option>
+                                    <option value="Servidor">Servidor</option>
+                                </select>
+                            </div>
+                            <div class="group-input">
+                                <div>
+                                    <label>Software: <span>*</span></label>
+                                    <input type="text" name="license.software" [(ngModel)]="license.software">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-buttons action">
+                    <div *ngIf="view; else showBtnReturn">
+                        <a routerLink="/licenses" class="btn-primary btn-red">Volver</a>
+                    </div>
+                    <ng-template #showBtnReturn>
+                        <button class="btn-primary btn-blue" (click)="edit ? updateLicense() : createLicense()">Guardar</button>
+                        <a routerLink="/licenses" class="btn-primary btn-red">Cancelar</a>
+                    </ng-template>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -20,17 +20,19 @@ import { ComputerAddComponent } from './components/hardware/computers/computer-a
 import { UpsAddComponent } from './components/hardware/ups/ups-add/ups-add.component';
 import { PeripheralsAddComponent } from './components/hardware/peripherals/peripherals-add/peripherals-add.component';
 import { SectionLocationHistoryComponent } from './components/hardware/section-location-history/section-location-history.component';
-
-//Services
-import { DependenciesService } from './services/dependencies.service';
-import { UserService } from "./services/user/user.service";
-import { HardwareService } from "./services/hardware/hardware.service";
 import { SectionAssignComponent } from './components/hardware/ups/section-assign/section-assign.component';
 import { SectionAssignComputerComponent } from './components/hardware/computers/section-assign-computer/section-assign-computer.component';
 import { SectionAssignPeripheralComponent } from './components/hardware/peripherals/section-assign-peripheral/section-assign-peripheral.component';
 import { SectionConnectedPrintersComponent } from './components/hardware/computers/section-connected-printers/section-connected-printers.component';
 import { SectionNetworkConfigurationComponent } from './components/hardware/computers/section-network-configuration/section-network-configuration.component';
+import { ListLicensesComponent } from './components/software/licenses/list-licenses/list-licenses.component';
+import { AddLicenseComponent } from './components/software/licenses/add-license/add-license.component';
 
+//Services
+import { DependenciesService } from './services/dependencies.service';
+import { UserService } from "./services/user/user.service";
+import { HardwareService } from "./services/hardware/hardware.service";
+import { LicenseService } from "./services/license/license.service";
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { SectionNetworkConfigurationComponent } from './components/hardware/comp
     SectionAssignPeripheralComponent,
     SectionConnectedPrintersComponent,
     SectionNetworkConfigurationComponent,
+    ListLicensesComponent,
+    AddLicenseComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +68,8 @@ import { SectionNetworkConfigurationComponent } from './components/hardware/comp
   providers: [
     DependenciesService,
     UserService,
-    HardwareService
+    HardwareService,
+    LicenseService
   ],
   bootstrap: [AppComponent]
 })

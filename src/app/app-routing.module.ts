@@ -12,6 +12,8 @@ import { HardwareListComponent } from "./components/hardware/hardware-list/hardw
 import { ComputerAddComponent } from "./components/hardware/computers/computer-add/computer-add.component";
 import { UpsAddComponent } from "./components/hardware/ups/ups-add/ups-add.component";
 import { PeripheralsAddComponent } from "./components/hardware/peripherals/peripherals-add/peripherals-add.component";
+import { ListLicensesComponent } from "./components/software/licenses/list-licenses/list-licenses.component";
+import { AddLicenseComponent } from "./components/software/licenses/add-license/add-license.component";
 
 const routes: Routes = [
   {
@@ -90,6 +92,14 @@ const routes: Routes = [
   {
     path: 'hardware/computer/view/:id',
     component: ComputerAddComponent
+  },
+  {
+    path: 'licenses',
+    component: ListLicensesComponent
+  },
+  {
+    path: 'licenses/add',
+    component: AddLicenseComponent
   }
 ];
 
