@@ -17,4 +17,8 @@ export class SoftwareService {
   createSoftware(software: Software): Observable<any> {
     return this.http.post(`${this.API_URI}/software/`, software);
   }
+
+  getAllSoftware(): Observable<any> {
+    return this.http.get(`${this.API_URI}/software/`);
+  }
 }

@@ -1,0 +1,39 @@
+<app-menu></app-menu>
+<div class="main-container">
+    <app-logout-bar [title]=title></app-logout-bar>
+    <div class="content">
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <a routerLink="/software/add" class="btn-rad btn-blue btn-secundary">Registrar software</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="5%">No.</th>
+                            <th width="30%">Nombre</th>
+                            <th width="15%">Versión</th>
+                            <th width="30%">Proveedor</th>
+                            <th width="20%">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let soft of software; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{soft.name_software}}</td>
+                            <td>{{soft.version}}</td>
+                            <td>{{soft.provider}}</td>
+                            <td>
+                                <a class="btnAction edit"><i
+                                        class="fas fa-edit"></i></a>
+                                <button class="btnAction delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
