@@ -29,4 +29,8 @@ export class LicenseService {
   updateLicense(license: Licenses): Observable<any> {
     return this.http.put(`${this.API_URI}/licenses/`, license);
   }
+
+  deleteLicense(id_license: number): Observable<any> {
+    return this.http.delete(`${this.API_URI}/licenses/${id_license}`);
+  }
 }

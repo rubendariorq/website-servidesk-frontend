@@ -30,7 +30,7 @@
                             <td>
                                 <a class="btnAction edit" routerLink="/licenses/{{license.id_license}}"><i
                                         class="fas fa-edit"></i></a>
-                                <button class="btnAction delete"><i class="fas fa-trash"></i></button>
+                                <button class="btnAction delete" (click)="deleteLicense(license.id_license)"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
                     </tbody>
