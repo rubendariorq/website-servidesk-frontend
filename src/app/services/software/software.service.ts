@@ -29,4 +29,8 @@ export class SoftwareService {
   updateSoftware(software: Software): Observable<any> {
     return this.http.put(`${this.API_URI}/software/`, software);
   }
+
+  deleteSoftware(id_software: number): Observable<any> {
+    return this.http.delete(`${this.API_URI}/software/${id_software}`);
+  }
 }

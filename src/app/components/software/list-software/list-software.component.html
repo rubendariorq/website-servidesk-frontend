@@ -28,7 +28,7 @@
                             <td>
                                 <a class="btnAction edit" routerLink = "/software/{{soft.id_software}}"><i
                                         class="fas fa-edit"></i></a>
-                                <button class="btnAction delete"><i class="fas fa-trash"></i></button>
+                                <button class="btnAction delete" (click)="deleteSoftware(soft.id_software)"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
                     </tbody>
