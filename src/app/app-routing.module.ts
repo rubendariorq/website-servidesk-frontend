@@ -100,6 +100,10 @@ const routes: Routes = [
   {
     path: 'licenses/add',
     component: AddLicenseComponent
+  },
+  {
+    path: 'licenses/:id',
+    component: AddLicenseComponent
   }
 ];
 

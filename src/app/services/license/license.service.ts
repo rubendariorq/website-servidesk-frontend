@@ -21,4 +21,12 @@ export class LicenseService {
   getLicenses(): Observable<any> {
     return this.http.get(`${this.API_URI}/licenses/`);
   }
+
+  getLicense(id_license: number): Observable<any> {
+    return this.http.get(`${this.API_URI}/licenses/${id_license}`);
+  }
+
+  updateLicense(license: Licenses): Observable<any> {
+    return this.http.put(`${this.API_URI}/licenses/`, license);
+  }
 }
