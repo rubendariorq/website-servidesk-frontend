@@ -14,6 +14,8 @@ import { UpsAddComponent } from "./components/hardware/ups/ups-add/ups-add.compo
 import { PeripheralsAddComponent } from "./components/hardware/peripherals/peripherals-add/peripherals-add.component";
 import { ListLicensesComponent } from "./components/software/licenses/list-licenses/list-licenses.component";
 import { AddLicenseComponent } from "./components/software/licenses/add-license/add-license.component";
+import { AddSoftwareComponent } from "./components/software/add-software/add-software.component";
+import { ListSoftwareComponent } from "./components/software/list-software/list-software.component";
 
 const routes: Routes = [
   {
@@ -104,6 +106,14 @@ const routes: Routes = [
   {
     path: 'licenses/:id',
     component: AddLicenseComponent
+  },
+  {
+    path: 'software',
+    component: ListSoftwareComponent
+  },
+  {
+    path: 'software/add',
+    component: AddSoftwareComponent
   }
 ];
 

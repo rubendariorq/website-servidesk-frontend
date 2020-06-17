@@ -1,0 +1,119 @@
+<app-menu></app-menu>
+<div class="main-container">
+    <app-logout-bar [title]=title></app-logout-bar>
+    <div class="content">
+        <div class="card">
+            <form>
+                <div class="form-section">
+                    <div class="fs-title">Información general</div>
+                    <div class="fs-fields">
+                        <div class="fs-content">
+                            <div class="group-input">
+                                <div>
+                                    <label>Nombre del software: <span>*</span></label>
+                                    <input type="text" name="software.name_software" [(ngModel)]="software.name_software">
+                                </div>
+                            </div>
+                            <div class="group-input">
+                                <div>
+                                    <label>Versión: <span>*</span></label>
+                                    <input type="text" name="software.version" [(ngModel)]="software.version">
+                                </div>
+                            </div>
+                            <div class="group-input">
+                                <label>Estado actual del software: <span>*</span></label>
+                                <select name="software.status_software" [(ngModel)]="software.status_software">
+                                    <option value="">Seleccione</option>
+                                    <option value="desarrollo">En desarrollo</option>
+                                    <option value="Instalado">Instalado</option>
+                                    <option value="produccion">En producción</option>
+                                </select>
+                            </div>
+                            <div class="group-input">
+                                <label>Información del desarrollo: <span>*</span></label>
+                                <select name="software.development_information" [(ngModel)]="software.development_information">
+                                    <option value="">Seleccione</option>
+                                    <option value="Propio">Propio</option>
+                                    <option value="tercero">De tercero</option>
+                                </select>
+                            </div>
+                            <div class="group-input">
+                                <label>Soporte del software: <span>*</span></label>
+                                <select name="software.support" [(ngModel)]="software.support">
+                                    <option value="">Seleccione</option>
+                                    <option value="Interno">Interno</option>
+                                    <option value="Externo">Externo</option>
+                                    <option value="noexiste">No existe</option>
+                                </select>
+                            </div>
+                            <div class="group-input">
+                                <label>Estado del soporte: <span>*</span></label>
+                                <select name="software.status_support" [(ngModel)]="software.status_support">
+                                    <option value="">Seleccione</option>
+                                    <option value="Vigente">Vigente</option>
+                                    <option value="Vencido">Vencido</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="fs-content">
+                            <div class="group-input">
+                                <div>
+                                    <label>Lenguaje de desarrollo:</label>
+                                    <input type="text" name="software.development_language" [(ngModel)]="software.development_language">
+                                </div>
+                            </div>
+                            <div class="group-input">
+                                <div>
+                                    <label>Proveedor: <span>*</span></label>
+                                    <input type="text" name="software.provider" [(ngModel)]="software.provider">
+                                </div>
+                            </div>
+                            <div class="group-input">
+                                <div>
+                                    <label>Propietario del software: <span>*</span></label>
+                                    <input type="text" name="software.software_property" [(ngModel)]="software.software_property">
+                                </div>
+                            </div>
+                            <div class="group-input">
+                                <div>
+                                    <label>Propietario del código fuente: <span>*</span></label>
+                                    <input type="text" name="software.code_property" [(ngModel)]="software.code_property">
+                                </div>
+                            </div>
+                            <div class="group-input">
+                                <label>Plataforma: <span>*</span></label>
+                                <select name="software.plataform" [(ngModel)]="software.plataform">
+                                    <option value="">Seleccione</option>
+                                    <option value="Windows">Windows</option>
+                                    <option value="Unix">Unix</option>
+                                    <option value="AS400">AS400</option>
+                                </select>
+                            </div>
+                            <div class="group-input">
+                                <div>
+                                    <label>Costo de mantenimiento: <span>*</span></label>
+                                    <input type="number" name="software.cost_maintenance" [(ngModel)]="software.cost_maintenance">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fs-fields">
+                        <div class="group-input">
+                            <label>Restricción contractual de uso:</label>
+                            <textarea name="software.contractual_use_restriction" [(ngModel)]="software.contractual_use_restriction" cols="80" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-buttons action">
+                    <div *ngIf="view; else showBtnReturn">
+                        <a routerLink="/software" class="btn-primary btn-red">Volver</a>
+                    </div>
+                    <ng-template #showBtnReturn>
+                        <button class="btn-primary btn-blue" (click)="edit ? updateSoftware() : createSoftware()">Guardar</button>
+                        <a routerLink="/software" class="btn-primary btn-red">Cancelar</a>
+                    </ng-template>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

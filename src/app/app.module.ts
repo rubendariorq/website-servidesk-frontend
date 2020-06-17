@@ -27,12 +27,15 @@ import { SectionConnectedPrintersComponent } from './components/hardware/compute
 import { SectionNetworkConfigurationComponent } from './components/hardware/computers/section-network-configuration/section-network-configuration.component';
 import { ListLicensesComponent } from './components/software/licenses/list-licenses/list-licenses.component';
 import { AddLicenseComponent } from './components/software/licenses/add-license/add-license.component';
+import { AddSoftwareComponent } from './components/software/add-software/add-software.component';
+import { ListSoftwareComponent } from './components/software/list-software/list-software.component';
 
 //Services
 import { DependenciesService } from './services/dependencies.service';
 import { UserService } from "./services/user/user.service";
 import { HardwareService } from "./services/hardware/hardware.service";
 import { LicenseService } from "./services/license/license.service";
+import { SoftwareService } from "./services/software/software.service";
 
 @NgModule({
   declarations: [
@@ -58,6 +61,8 @@ import { LicenseService } from "./services/license/license.service";
     SectionNetworkConfigurationComponent,
     ListLicensesComponent,
     AddLicenseComponent,
+    AddSoftwareComponent,
+    ListSoftwareComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +74,8 @@ import { LicenseService } from "./services/license/license.service";
     DependenciesService,
     UserService,
     HardwareService,
-    LicenseService
+    LicenseService,
+    SoftwareService
   ],
   bootstrap: [AppComponent]
 })
