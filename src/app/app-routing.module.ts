@@ -114,6 +114,10 @@ const routes: Routes = [
   {
     path: 'software/add',
     component: AddSoftwareComponent
+  },
+  {
+    path: 'software/:id',
+    component: AddSoftwareComponent
   }
 ];
 

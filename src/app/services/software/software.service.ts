@@ -21,4 +21,12 @@ export class SoftwareService {
   getAllSoftware(): Observable<any> {
     return this.http.get(`${this.API_URI}/software/`);
   }
+
+  getSoftware(id_software: number): Observable<any> {
+    return this.http.get(`${this.API_URI}/software/${id_software}`);
+  }
+
+  updateSoftware(software: Software): Observable<any> {
+    return this.http.put(`${this.API_URI}/software/`, software);
+  }
 }
