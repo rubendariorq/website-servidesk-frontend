@@ -17,4 +17,8 @@ export class LicenseService {
   addLicense(license: Licenses): Observable<any> {
     return this.http.post(`${this.API_URI}/licenses/`, license);
   }
+
+  getLicenses(): Observable<any> {
+    return this.http.get(`${this.API_URI}/licenses/`);
+  }
 }
