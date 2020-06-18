@@ -54,14 +54,14 @@
                                     <option value="Vencido">Vencido</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="fs-content">
                             <div class="group-input">
                                 <div>
                                     <label>Lenguaje de desarrollo:</label>
                                     <input type="text" name="software.development_language" [(ngModel)]="software.development_language">
                                 </div>
                             </div>
+                        </div>
+                        <div class="fs-content">
                             <div class="group-input">
                                 <div>
                                     <label>Proveedor: <span>*</span></label>
@@ -94,6 +94,27 @@
                                     <label>Costo de mantenimiento: <span>*</span></label>
                                     <input type="number" name="software.cost_maintenance" [(ngModel)]="software.cost_maintenance">
                                 </div>
+                            </div>
+                            <div class="group-input">
+                                <label>Tipo de acceso: <span>*</span></label>
+                                <select name="software.access_type" [(ngModel)]="software.access_type">
+                                    <option value="">Seleccione</option>
+                                    <option value="Local">Local</option>
+                                    <option value="ClienteServidor">Cliente-Servidor</option>
+                                    <option value="Web">Web</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </div>
+                            <div class="group-input">
+                                <label>Tipo de software: <span>*</span></label>
+                                <select name="software.software_type" [(ngModel)]="software.software_type">
+                                    <option value="">Seleccione</option>
+                                    <option value="SistemaOperativo">Sistema Operativo</option>
+                                    <option value="SistemaInformacion">Sistema de información</option>
+                                    <option value="BaseDatos">Base de datos</option>
+                                    <option value="Ofimatica">Ofimática</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
                             </div>
                         </div>
                     </div>

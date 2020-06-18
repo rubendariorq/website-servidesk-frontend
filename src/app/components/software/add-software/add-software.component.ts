@@ -33,7 +33,9 @@ export class AddSoftwareComponent implements OnInit {
     code_property: "",
     status_support: "",
     cost_maintenance: 0,
-    contractual_use_restriction: ""
+    contractual_use_restriction: "",
+    access_type: "",
+    software_type: ""
   }
 
   constructor(private softwareService: SoftwareService, private router: Router, private activatedRoute: ActivatedRoute) { }
@@ -43,7 +45,7 @@ export class AddSoftwareComponent implements OnInit {
   }
 
   createSoftware(): void {
-    if (this.software.name_software == "" || this.software.version == "" || this.software.status_software == "" || this.software.development_information == "" || this.software.support == "" || this.software.status_support == "" || this.software.provider == "" || this.software.software_property == "" || this.software.code_property == "" || this.software.plataform == "" || this.software.cost_maintenance == 0) {
+    if (this.software.name_software == "" || this.software.version == "" || this.software.status_software == "" || this.software.development_information == "" || this.software.support == "" || this.software.status_support == "" || this.software.provider == "" || this.software.software_property == "" || this.software.code_property == "" || this.software.plataform == "" || this.software.cost_maintenance == 0 || this.software.access_type == "" || this.software.software_type == "") {
       Swal.fire({
         icon: 'warning',
         text: 'Debe llenar todos los campos que tienen (*)',
@@ -128,7 +130,7 @@ export class AddSoftwareComponent implements OnInit {
   }
 
   updateSoftware(): void {
-    if (this.software.name_software == "" || this.software.version == "" || this.software.status_software == "" || this.software.development_information == "" || this.software.support == "" || this.software.status_support == "" || this.software.provider == "" || this.software.software_property == "" || this.software.code_property == "" || this.software.plataform == "" || this.software.cost_maintenance == 0) {
+    if (this.software.name_software == "" || this.software.version == "" || this.software.status_software == "" || this.software.development_information == "" || this.software.support == "" || this.software.status_support == "" || this.software.provider == "" || this.software.software_property == "" || this.software.code_property == "" || this.software.plataform == "" || this.software.cost_maintenance == 0 || this.software.access_type == "" || this.software.software_type == "") {
       Swal.fire({
         icon: 'warning',
         text: 'Debe llenar todos los campos que tienen (*)',

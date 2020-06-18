@@ -12,5 +12,7 @@ export interface Software{
     code_property: string,
     status_support: string,
     cost_maintenance: number,
-    contractual_use_restriction: string
+    contractual_use_restriction: string,
+    access_type: string,
+    software_type: string
 }
