@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 //Interfaces
 import { Software } from "../../interfaces/Software";
+import { SoftwareForComputer } from 'src/app/interfaces/SoftwareForComputer';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,9 @@ export class SoftwareService {
 
   deleteSoftware(id_software: number): Observable<any> {
     return this.http.delete(`${this.API_URI}/software/${id_software}`);
+  }
+
+  installSoftware(softwareForComputer: SoftwareForComputer): Observable<any> {
+    return this.http.post(`${this.API_URI}/software/install`, softwareForComputer);
   }
 }

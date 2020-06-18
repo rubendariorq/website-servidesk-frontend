@@ -1,0 +1,86 @@
+<div class="form-section">
+    <div class="fs-title">Instalar software</div>
+    <form>
+        <div class="fs-fields">
+            <div class="fs-content">
+                <div class="group-input">
+                    <div>
+                        <label>Software: <span>*</span></label>
+                        <select name="selectSoftware" [(ngModel)] = "selectSoftware" (change)="showInfoSoftware()">
+                            <option value="">Cualquier software</option>
+                            <option value="{{soft.name_software}}" *ngFor="let soft of software">{{soft.name_software}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ubicationInfo">
+                    <div>
+                        <p><strong>Nombre: </strong><label>{{softwareAux.name_software}}</label></p>
+                        <p><strong>Versión: </strong><label>{{softwareAux.version}}</label></p>
+                        <p><strong>Proveedor: </strong><label>{{softwareAux.provider}}</label></p>
+                    </div>
+                </div>
+                <div class="group-input">
+                    <div>
+                        <label>Fecha de asignación: <span>*</span></label>
+                        <input type="date" name="instalation_date" [(ngModel)]="instalation_date">
+                    </div>
+                </div>
+            </div>
+            <div class="fs-content">
+                <div class="group-input">
+                    <div>
+                        <label>Licencia: <span>*</span></label>
+                        <select name="selectLicense" [(ngModel)]="selectLicense" (change)="showInfoLicense()">
+                            <option value="">Cualquier licencia</option>
+                            <option value="{{license.software}}" *ngFor="let license of licenses">{{license.software}}
+                        </select>
+                    </div>
+                </div>
+                <div class="ubicationInfo">
+                    <div>
+                        <p><strong>Software: </strong><label>{{licenseAux.software}}</label></p>
+                        <p><strong>Validez: </strong><label>{{licenseAux.months_validity}} meses</label></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="group-buttons action">
+            <button class="btn-primary btn-blue" (click)="installSoftware()">Guardar</button>
+        </div>
+    </form>
+</div>
+<div class="form-section">
+    <div class="fs-title">Software instalado</div>
+    <div class="card">
+        <div class="card-header"></div>
+        <div class="card-body">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="20%">Nombre</th>
+                        <th width="10%">Versión</th>
+                        <th width="15%">Licencia</th>
+                        <th width="10%">Tipo de Acceso</th>
+                        <th width="15%">Proveedor</th>
+                        <th width="20%">Tipo de software</th>
+                        <th width="10%">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let hardUbi of hardwareUbications; let i = index">
+                        <td>{{hardUbi.name}}</td>
+                        <td>{{hardUbi.name_dependencie}}</td>
+                        <td>{{hardUbi.assignment_date}}</td>
+                        <td>{{hardUbi.return_date}}</td>
+                        <td>{{hardUbi.name_dependencie}}</td>
+                        <td>{{hardUbi.assignment_date}}</td>
+                        <td>
+                            <button class="btnAction delete"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
