@@ -7,15 +7,28 @@
                 <div>
                     <a routerLink="/software/add" class="btn-rad btn-blue btn-secundary">Registrar software</a>
                 </div>
+                <div class="filters">
+                    <label>Filtros</label>
+                    <select name="selectTypeSoftware" [(ngModel)]="selectTypeSoftware"
+                        (change)="getSoftwareForType($event.target.value)">
+                        <option value="" selected>Cualquier software</option>
+                        <option value="Sistema Operativo">Sistema Operativo</option>
+                        <option value="Sistema de informacion">Sistema de información</option>
+                        <option value="Base de datos">Base de datos</option>
+                        <option value="Ofimatica">Ofimática</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
             </div>
             <div class="card-body">
                 <table>
                     <thead>
                         <tr>
                             <th width="5%">No.</th>
-                            <th width="30%">Nombre</th>
+                            <th width="20%">Nombre</th>
                             <th width="15%">Versión</th>
-                            <th width="30%">Proveedor</th>
+                            <th width="20%">Proveedor</th>
+                            <th width="20%">Tipo de software</th>
                             <th width="20%">Acciones</th>
                         </tr>
                     </thead>
@@ -25,10 +38,12 @@
                             <td>{{soft.name_software}}</td>
                             <td>{{soft.version}}</td>
                             <td>{{soft.provider}}</td>
+                            <td>{{soft.software_type}}</td>
                             <td>
-                                <a class="btnAction edit" routerLink = "/software/{{soft.id_software}}"><i
+                                <a class="btnAction edit" routerLink="/software/{{soft.id_software}}"><i
                                         class="fas fa-edit"></i></a>
-                                <button class="btnAction delete" (click)="deleteSoftware(soft.id_software)"><i class="fas fa-trash"></i></button>
+                                <button class="btnAction delete" (click)="deleteSoftware(soft.id_software)"><i
+                                        class="fas fa-trash"></i></button>
                             </td>
                         </tr>
                     </tbody>
