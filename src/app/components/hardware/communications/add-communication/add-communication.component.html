@@ -1,0 +1,83 @@
+<app-menu></app-menu>
+<div class="main-container">
+    <app-logout-bar [title]=title></app-logout-bar>
+    <div class="content">
+        <div class="card">
+            <form>
+                <div class="form-section">
+                    <div class="fs-title">Información general</div>
+                    <div class="fs-fields">
+                        <div class="fs-content">
+                            <div class="group-input">
+                                <label>Placa de inventario: <span>*</span></label>
+                                <input type="text" name="communication.inventory_plate_communication" [(ngModel)]="communication.inventory_plate_communication">
+                            </div>
+                            <div class="group-input">
+                                <label>Serial: <span>*</span></label>
+                                <input type="text" name="communication.serial" [(ngModel)]="communication.serial">
+                            </div>
+                            <div class="group-input">
+                                <label>Objeto: <span>*</span></label>
+                                <select name="communication.object" [(ngModel)]="communication.object">
+                                    <option value="">Seleccione</option>
+                                    <option value="Voz">Voz</option>
+                                    <option value="Datos">Datos</option>
+                                </select>
+                            </div>
+                            <div class="group-input">
+                                <label>Tipo de dispositivo: <span>*</span></label>
+                                <input type="text" name="communication.type_device" [(ngModel)]="communication.type_device">
+                            </div>
+                            <div class="group-input">
+                                <label>Propiedad: <span>*</span></label>
+                                <input type="text" name="communication.property" [(ngModel)]="communication.property">
+                            </div>
+                            <div class="group-input">
+                                <label>Costo: <span>*</span></label>
+                                <input type="number" name="communication.cost" [(ngModel)]="communication.cost">
+                            </div>
+                        </div>
+                        <div class="fs-content">
+                            <div class="group-input">
+                                <label>Ip LAN: <span></span></label>
+                                <input type="text" name="communication.ip_lan" [(ngModel)]="communication.ip_lan">
+                            </div>
+                            <div class="group-input">
+                                <label>Ip WAN: <span></span></label>
+                                <input type="text" name="communication.ip_wan" [(ngModel)]="communication.ip_wan">
+                            </div>
+                            <div class="group-input">
+                                <label>Ip WAN Origen: <span></span></label>
+                                <input type="text" name="communication.ip_wanO" [(ngModel)]="communication.ip_wanO">
+                            </div>
+                            <div class="group-input">
+                                <label>Ip WAN Destino: <span></span></label>
+                                <input type="text" name="communication.ip_wanD" [(ngModel)]="communication.ip_wanD">
+                            </div>
+                            <div class="group-input">
+                                <label>Dependencia: <span>*</span></label>
+                                <select name="communication.dependencies_id_dependencie" [(ngModel)]="communication.dependencies_id_dependencie">
+                                    <option value="0">Seleccione</option>
+                                    <option value="{{dependencie.id_dependencie}}" *ngFor="let dependencie of dependencies">{{dependencie.name_dependencie}}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <div class="fs-title">Descripción</div>
+                    <div class="fs-fields">
+                        <div class="group-input">
+                            <textarea name="communication.description" [(ngModel)]="communication.description" cols="80" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-buttons action">
+                    <button class="btn-primary btn-blue"
+                        (click)="edit ? updateCommunication() : createCommunication()">Guardar</button>
+                    <a routerLink="/communications" class="btn-primary btn-red">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

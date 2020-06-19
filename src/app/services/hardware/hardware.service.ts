@@ -8,6 +8,7 @@ import { Ups } from "../../interfaces/Ups";
 import { Peripheral } from 'src/app/interfaces/Peripheral';
 import { HardwareUbications } from "../../interfaces/HardwareUbications";
 import { PeripheralForComputer } from 'src/app/interfaces/PeripheralForConputer';
+import { Communication } from 'src/app/interfaces/Communication';
 
 @Injectable({
   providedIn: 'root'
@@ -139,5 +140,9 @@ export class HardwareService {
 
   uptadeNetworkConfiguration(computer:Computer): Observable<any>{
     return this.http.put(`${this.API_URI}/hardware/computer`, computer);
+  }
+
+  createCommunications(communication: Communication): Observable<any> {
+    return this.http.post(`${this.API_URI}/communications`, communication);
   }
 }

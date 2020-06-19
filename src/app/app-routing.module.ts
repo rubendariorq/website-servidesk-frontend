@@ -16,6 +16,8 @@ import { ListLicensesComponent } from "./components/software/licenses/list-licen
 import { AddLicenseComponent } from "./components/software/licenses/add-license/add-license.component";
 import { AddSoftwareComponent } from "./components/software/add-software/add-software.component";
 import { ListSoftwareComponent } from "./components/software/list-software/list-software.component";
+import { ListCommunicationComponent } from "./components/hardware/communications/list-communication/list-communication.component";
+import { AddCommunicationComponent } from "./components/hardware/communications/add-communication/add-communication.component";
 
 const routes: Routes = [
   {
@@ -118,6 +120,14 @@ const routes: Routes = [
   {
     path: 'software/:id',
     component: AddSoftwareComponent
+  },
+  {
+    path: 'communications',
+    component: ListCommunicationComponent
+  },
+  {
+    path: 'communications/add',
+    component: AddCommunicationComponent
   }
 ];
 

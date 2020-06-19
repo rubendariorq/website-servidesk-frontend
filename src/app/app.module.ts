@@ -37,6 +37,8 @@ import { HardwareService } from "./services/hardware/hardware.service";
 import { LicenseService } from "./services/license/license.service";
 import { SoftwareService } from "./services/software/software.service";
 import { AssignSoftwareComponent } from './components/software/assign-software/assign-software.component';
+import { AddCommunicationComponent } from './components/hardware/communications/add-communication/add-communication.component';
+import { ListCommunicationComponent } from './components/hardware/communications/list-communication/list-communication.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,8 @@ import { AssignSoftwareComponent } from './components/software/assign-software/a
     AddSoftwareComponent,
     ListSoftwareComponent,
     AssignSoftwareComponent,
+    AddCommunicationComponent,
+    ListCommunicationComponent,
   ],
   imports: [
     BrowserModule,
