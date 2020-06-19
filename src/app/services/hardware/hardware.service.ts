@@ -149,4 +149,12 @@ export class HardwareService {
   getCommunications(): Observable<any> {
     return this.http.get(`${this.API_URI}/communications`);
   }
+
+  getCommunication(inventory_plate: string): Observable<any> {
+    return this.http.get(`${this.API_URI}/communications/${inventory_plate}`);
+  }
+
+  updateCommunication(inventory_plate: string, communication: Communication): Observable<any> {
+    return this.http.put(`${this.API_URI}/communications/${inventory_plate}`, communication);
+  }
 }

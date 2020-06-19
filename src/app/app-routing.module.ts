@@ -128,6 +128,10 @@ const routes: Routes = [
   {
     path: 'communications/add',
     component: AddCommunicationComponent
+  },
+  {
+    path: 'communications/edit/:id',
+    component: AddCommunicationComponent
   }
 ];
 
