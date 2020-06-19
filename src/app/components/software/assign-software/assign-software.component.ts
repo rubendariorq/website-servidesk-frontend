@@ -58,11 +58,13 @@ export class AssignSoftwareComponent implements OnInit {
     client_server: "",
     software: ""
   }
+  softwareForComputerList: any = [];
 
   constructor(private softwareService: SoftwareService, private licenseService: LicenseService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.getAllSoftwareAndAllLicenses();
+    this.getSoftwareInstalled();
   }
 
   getAllSoftwareAndAllLicenses(): void {
@@ -241,7 +243,67 @@ export class AssignSoftwareComponent implements OnInit {
     this.selectSoftware = "";
     this.selectLicense = "";
     this.instalation_date = "";
+  }
 
+  getSoftwareInstalled(): void {
+    let inventory_plate = this.activatedRoute.snapshot.params.id;
+    this.softwareService.getSoftwareInstalled(inventory_plate)
+      .subscribe(
+        res => {
+          console.log(res);
+
+          this.connectionLost = res;
+          if (this.connectionLost.code == 'ETIMEDOUT') {
+            console.log('Conexión perdida. Reconectando...');
+            this.getSoftwareInstalled();
+          } else {
+            this.softwareForComputerList = res;
+
+            let aux = "";
+            let date = [];
+            let i = 0;
+            while (i < this.softwareForComputerList.length) {
+              if (this.softwareForComputerList[i].free_commercial == "Comercial") {
+
+                //Format date instalation
+                aux = this.softwareForComputerList[i].instalation_date;
+                date = aux.split('T');
+                this.softwareForComputerList[i].instalation_date = date[0];
+
+                let days_validity = this.softwareForComputerList[i].months_validity * 30;
+
+                let f = new Date();
+                let today = "";
+                let year = f.getFullYear();
+                let month = (f.getMonth() + 1);
+                let monthAux = "";
+                let day = f.getDate();
+
+                if (month < 10) {
+                  monthAux = '0' + month;
+                }
+                today = year + "-" + monthAux + "-" + day;
+
+                let init_day = new Date(this.softwareForComputerList[i].instalation_date);
+                var end_day = new Date(today);
+                var diff_day = end_day.getTime() - init_day.getTime();
+                var cont_days = Math.round(diff_day / (1000 * 60 * 60 * 24));
+                
+                if(cont_days > days_validity){
+                  this.softwareForComputerList[i].free_commercial = 'Vencida';
+                }else{
+                  this.softwareForComputerList[i].free_commercial = 'Vigente';
+                }
+              } else {
+                this.softwareForComputerList[i].free_commercial = 'Libre';
+              }
+              i++;
+            }
+
+          }
+        },
+        err => console.error(err)
+      );
   }
 
 }

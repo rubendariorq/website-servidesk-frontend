@@ -1,3 +1,10 @@
+.btnAction{
+    margin-left: 5px;
+    padding: 7px;
+    border-radius: 5px;
+    border: 0px;
+}
+
 .btn-primary{
     padding: 5px 10px;
     background-color: #00aa99;
@@ -22,6 +29,12 @@
 
 .card-body{
     padding: 20px 10px;
+}
+
+.delete{
+    background-color: #e93632;
+    border-color: #c72825;
+    color: #FFF;
 }
 
 .form-section{

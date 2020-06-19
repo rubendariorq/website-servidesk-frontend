@@ -68,13 +68,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let hardUbi of hardwareUbications; let i = index">
-                        <td>{{hardUbi.name}}</td>
-                        <td>{{hardUbi.name_dependencie}}</td>
-                        <td>{{hardUbi.assignment_date}}</td>
-                        <td>{{hardUbi.return_date}}</td>
-                        <td>{{hardUbi.name_dependencie}}</td>
-                        <td>{{hardUbi.assignment_date}}</td>
+                    <tr *ngFor="let softForComp of softwareForComputerList; let i = index">
+                        <td>{{softForComp.name_software}}</td>
+                        <td>{{softForComp.version}}</td>
+                        <td>{{softForComp.free_commercial}}</td>
+                        <td>{{softForComp.access_type}}</td>
+                        <td>{{softForComp.provider}}</td>
+                        <td>{{softForComp.software_type}}</td>
                         <td>
                             <button class="btnAction delete"><i class="fas fa-trash"></i></button>
                         </td>
