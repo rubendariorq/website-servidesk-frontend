@@ -1,0 +1,41 @@
+<app-menu></app-menu>
+<div class="main-container">
+    <app-logout-bar [title]=title></app-logout-bar>
+    <div class="content">
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <a routerLink="/communications/add" class="btn-rad btn-blue btn-secundary">Registrar dispositivo
+                        comunicación</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="5%">No.</th>
+                            <th width="20%">Tipo de dispositivo</th>
+                            <th width="15%">Serial</th>
+                            <th width="20%">Objeto</th>
+                            <th width="20%">Dependencia</th>
+                            <th width="20%">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let communication of communications; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{communication.type_device}}</td>
+                            <td>{{communication.serial}}</td>
+                            <td>{{communication.object}}</td>
+                            <td>{{communication.name_dependencie}}</td>
+                            <td>
+                                <a class="btnAction edit"><i class="fas fa-edit"></i></a>
+                                <button class="btnAction delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
