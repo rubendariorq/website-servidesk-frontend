@@ -31,6 +31,12 @@ export class AssignSoftwareComponent implements OnInit {
     instalation_date: "",
     inventory_plate: ""
   };
+  softwareForComputer2: SoftwareForComputer = {
+    id_license: 0,
+    id_software: 0,
+    instalation_date: "",
+    inventory_plate: ""
+  };
   softwareAux: Software = {
     id_software: 0,
     name_software: "",
@@ -202,7 +208,7 @@ export class AssignSoftwareComponent implements OnInit {
                   confirmButtonColor: '#00aa99'
                 }).then((result) => {
                   this.reset_values();
-                  console.log('actualizar la tabla de software instalado');
+                  this.getSoftwareInstalled();
                 });
               }
             }
@@ -263,6 +269,7 @@ export class AssignSoftwareComponent implements OnInit {
             let date = [];
             let i = 0;
             while (i < this.softwareForComputerList.length) {
+              this.softwareForComputerList[i].support = inventory_plate;
               if (this.softwareForComputerList[i].free_commercial == "Comercial") {
 
                 //Format date instalation
@@ -288,10 +295,10 @@ export class AssignSoftwareComponent implements OnInit {
                 var end_day = new Date(today);
                 var diff_day = end_day.getTime() - init_day.getTime();
                 var cont_days = Math.round(diff_day / (1000 * 60 * 60 * 24));
-                
-                if(cont_days > days_validity){
+
+                if (cont_days > days_validity) {
                   this.softwareForComputerList[i].free_commercial = 'Vencida';
-                }else{
+                } else {
                   this.softwareForComputerList[i].free_commercial = 'Vigente';
                 }
               } else {
@@ -304,6 +311,56 @@ export class AssignSoftwareComponent implements OnInit {
         },
         err => console.error(err)
       );
+  }
+
+  uninstallSoftware(inventory_plate: string, id_software: number, id_license: number): void {
+    this.softwareForComputer2.inventory_plate = inventory_plate;
+    this.softwareForComputer2.id_software = id_software;
+    this.softwareForComputer2.id_license = id_license;
+
+    Swal.fire({
+      icon: 'warning',
+      title: '¿Desea desinstalar el software?',
+      text: 'Si lo desinstala no podra recuperarlo más adelante',
+      showCancelButton: true,
+      confirmButtonColor: '#00aa99',
+      cancelButtonColor: '#ED213A',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire({
+          title: 'Espere un momento',
+          text: 'Estamos realizando la consulta',
+          timerProgressBar: true,
+          onBeforeOpen: () => {
+            Swal.showLoading()
+          }
+        });
+        this.softwareService.deleteSoftwareInstalled(this.softwareForComputer2)
+          .subscribe(
+            res => {
+              console.log(res);
+              document.querySelector('div[class="swal2-container swal2-center swal2-backdrop-show"]').remove();
+
+              this.connectionLost = res;
+              if (this.connectionLost.code == 'ETIMEDOUT') {
+                console.log('Conexión perdida. Reconectando...');
+                this.uninstallSoftware(inventory_plate, id_software, id_license);
+              } else {
+                Swal.fire({
+                  title: 'Hecho',
+                  text: 'El software se instaló con exito',
+                  icon: 'success',
+                  confirmButtonColor: '#00aa99'
+                }).then((result) => {
+                  this.getSoftwareInstalled();
+                });
+              }
+            },
+            err => console.error(err)
+          );
+      }
+    });
   }
 
 }

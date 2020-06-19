@@ -46,4 +46,8 @@ export class SoftwareService {
   getSoftwareInstalled(inventory_plate: string): Observable<any> {
     return this.http.get(`${this.API_URI}/software/install/${inventory_plate}`);
   }
+
+  deleteSoftwareInstalled(softwareForComputer: SoftwareForComputer): Observable<any> {
+    return this.http.post(`${this.API_URI}/software/uninstall`, softwareForComputer);
+  }
 }

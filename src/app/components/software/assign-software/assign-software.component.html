@@ -76,7 +76,7 @@
                         <td>{{softForComp.provider}}</td>
                         <td>{{softForComp.software_type}}</td>
                         <td>
-                            <button class="btnAction delete"><i class="fas fa-trash"></i></button>
+                            <button class="btnAction delete" (click)="uninstallSoftware(softForComp.support, softForComp.id_software, softForComp.id_license)"><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>
                 </tbody>
