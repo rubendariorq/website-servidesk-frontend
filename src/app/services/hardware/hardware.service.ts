@@ -157,4 +157,8 @@ export class HardwareService {
   updateCommunication(inventory_plate: string, communication: Communication): Observable<any> {
     return this.http.put(`${this.API_URI}/communications/${inventory_plate}`, communication);
   }
+
+  deleteCommunication(inventory_plate: string): Observable<any> {
+    return this.http.delete(`${this.API_URI}/communications/${inventory_plate}`);
+  }
 }
